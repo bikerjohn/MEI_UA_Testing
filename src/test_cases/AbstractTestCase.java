@@ -61,8 +61,8 @@ public class AbstractTestCase {
 	    //driver = new FirefoxDriver();
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    driver.manage().window().maximize();
-	    //driver.get("https://staging.pilrhealth.com/");
-	    driver.get("https://qa.pilrhealth.com/");
+	    driver.get("https://staging.pilrhealth.com/");
+	    //driver.get("https://qa.pilrhealth.com/");
 	    objtestvars = new TestVars();
 	    //final Logger log = Logger.getLogger(AbstractTestCase.class);
 	

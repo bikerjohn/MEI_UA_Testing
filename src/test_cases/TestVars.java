@@ -38,9 +38,9 @@ public final class TestVars {
 		passwrd="$Rtchierans9x1";
 		prjct="Delete EMA Config Test";
 		//prjct="test6008";
-		org="EMA Standard Surveys";
+		//org="EMA Standard Surveys";
 		//org="PiLRHealth Auto QA Test Org (OWNER)";
-		//org="PiLR Demo (OWNER)";
+		org="PiLR Demo (OWNER)";
 		part_code="922";
 		part_desc="bikerjohn";
 		ema_config="Delete Config Test";
