@@ -29,6 +29,7 @@ public final class TestVars {
 	 private String participant_status;
 	 private String default_assignments;
 	 private Integer proj_wizard_import_component_li;
+	 private Integer proj_wizard_import_bundle_li;
 	 public String ema_config_defs;
 	
 	//set the default value of the test variables
@@ -61,6 +62,7 @@ public final class TestVars {
 		participant_status = "Enrolled";
 		default_assignments = "Default Assignments";
 		proj_wizard_import_component_li = 0;
+		proj_wizard_import_bundle_li = 1;
 		ema_config_defs = "C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json";
 				
 		
@@ -147,6 +149,9 @@ public final class TestVars {
 		}
 		public final Integer get_Import_Component_li(){
 			return proj_wizard_import_component_li;
+		}
+		public final Integer get_Import_Bundle_li(){
+			return proj_wizard_import_bundle_li;
 		}
 		public final void set_EMA_Config_Defs(String newconfigdefs){
 			this.ema_config_defs=newconfigdefs;

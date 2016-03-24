@@ -59,7 +59,7 @@ public class AbstractTestCase {
 		System.out.println("Working Directory = " + System.getProperty("user.dir"));
 		
 		String matt = "/Users/matt/git/src/Selenium_WebDriver_Testing";
-		String john = "C:/serv/mei/MEI_UA_Testing/";
+		String john = "C:\\srv\\mei\\MEI_UA_Testing";
 		
 		//Check if it's Matt's system via string comparison
 		if((System.getProperty("user.dir")).equals(matt)){
@@ -80,7 +80,7 @@ public class AbstractTestCase {
 		else if((System.getProperty("user.dir")).equals(john)){
 			
 			//John
-			System.out.println(System.setProperty("webdriver.chrome.driver", "C:/Users/eagle/Program Files/chromedriver_win32/chromedriver.exe"));
+			System.setProperty("webdriver.chrome.driver", "C:/Users/eagle/Program Files/chromedriver_win32/chromedriver.exe");
 			
 			//Set path related variables
 			objtestvars = new TestVars();
