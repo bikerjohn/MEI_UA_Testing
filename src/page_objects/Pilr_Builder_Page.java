@@ -11,7 +11,7 @@ public class Pilr_Builder_Page {
 	By pickEMAConfig = By.cssSelector("a[href*='" + project + "']");
 	By addConfig = By.cssSelector("a[href='/project/project_name/emaOtsConfig/createConfig']");
 	By importConfig = By.partialLinkText("import");
-	
+	By exportConfig = By.partialLinkText("export");
 	
 	public Pilr_Builder_Page(WebDriver driver){
 		 
@@ -51,6 +51,12 @@ public class Pilr_Builder_Page {
     public Import_EMA_Defs_Modal Import_EMAConfig(){
     	driver.findElement(importConfig).click();
     	return new Import_EMA_Defs_Modal(driver);
+    }
+    //Export ema config, split due to creation of export modal
+    public Export_EMA_Defs_Modal Export_EMAConfig(){
+    	driver.findElement(exportConfig).click();
+    	//Return new Import?
+    	return new Export_EMA_Defs_Modal(driver);
     }
  
 }
