@@ -43,7 +43,8 @@ public final class TestVars {
 		//org="PiLR Demo (OWNER)";
 		part_code="922";
 		part_desc="bikerjohn";
-		ema_config="New EMA Config";
+		//ema_config="New EMA Config";
+		ema_config="Delete Config Test";
 		new_ema_config="New EMA Config";
 		surv_name="Test Survey";
 		surv_desc="this is a survey created by an automated qa script";
@@ -61,8 +62,8 @@ public final class TestVars {
 		import_file_name = "C:\\srv\\mei\\bulk_participants.csv";
 		participant_status = "Enrolled";
 		default_assignments = "Default Assignments";
-		proj_wizard_import_component_li = 0;
-		proj_wizard_import_bundle_li = 1;
+		proj_wizard_import_component_li = 1;
+		proj_wizard_import_bundle_li = 0;
 		ema_config_defs = "C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json";
 				
 		
