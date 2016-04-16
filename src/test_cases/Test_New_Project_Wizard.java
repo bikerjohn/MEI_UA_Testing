@@ -90,7 +90,7 @@ public class Test_New_Project_Wizard extends AbstractTestCase {
     		Thread.currentThread().interrupt();
     	}
 		Assert.assertTrue(objImportInstrumentModal.getProjectImportModalWelcome()
-			.toLowerCase().contains("import project settings"));
+			.toLowerCase().contains("import instruments"));
 		objImportInstrumentModal.importInstrumentfromURL(objtestvars.getInstrumentURL());
 		Assert.assertTrue(objProjectSettings.getprojectSuccessMsg()
 				.toLowerCase().contains("project components were added successfully"));
