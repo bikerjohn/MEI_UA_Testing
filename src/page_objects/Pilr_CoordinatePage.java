@@ -15,6 +15,8 @@ public class Pilr_CoordinatePage {
 	   By BrowseData = By.cssSelector("a[id='navDataBrowse']");
 	   By BulkAddParticipant = By.cssSelector("a[id='bulkAddParticipant']");
 	   By BulkEditParticipant = By.cssSelector("a[id='bulkEditParticipants']");
+	  // By InstrumentEMA = By.cssSelector("a[id='navInstrumentsPiLREMAApp']");
+	   
 	   
 	 public Pilr_CoordinatePage(WebDriver driver){
 	 

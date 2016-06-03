@@ -96,6 +96,25 @@ public class Test_New_Project_Wizard extends AbstractTestCase {
 				.toLowerCase().contains("project components were added successfully"));
 	}
 	@Test
+	public void test_Import_Instrument_JSON_from_Raw_Liad() {
+		objImportInstrumentModal = new Project_Import_Modal(driver);
+		try {
+			System.out.println("Before sleep\n");
+    		Thread.sleep(5000); 
+    	}
+    	catch(InterruptedException ex) {
+    		System.out.println("Exception handler\n");
+    		Thread.currentThread().interrupt();
+    	}
+		System.out.println(objImportInstrumentModal.getProjectImportModalWelcome2()
+			.toLowerCase());
+		Assert.assertTrue(objImportInstrumentModal.getProjectImportModalWelcome2()
+			.toLowerCase().contains("select components from the marketplace."));
+		objImportInstrumentModal.importInstrumentfromURL(objtestvars.getLiadInstrumentURL());
+		Assert.assertTrue(objProjectSettings.getprojectSuccessMsg()
+				.toLowerCase().contains("project components were added successfully"));
+	}
+	@Test
 	//select the Import Component from Organization to Import Instrument
 	public void test_Import_EMA_Instrument_From_Organization(){
 		objProjectConfig = new Project_Wizard_Config_Options(driver);
@@ -115,7 +134,7 @@ public class Test_New_Project_Wizard extends AbstractTestCase {
 		Assert.assertTrue(objProjectConfig.getConfigOptionsWelcome().toLowerCase()
 				.contains("setup the project design"));
 		objProjectConfig.select_Import_From_Organization();
-		objProjectConfig.import_Component_From_Organization(objtestvars.get_Import_Bundle_li());
+		//objProjectConfig.import_Component_From_Organization(objtestvars.get_Import_Bundle_li());
 	}
 	
 }

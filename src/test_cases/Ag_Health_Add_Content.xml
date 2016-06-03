@@ -1,0 +1,18 @@
+<suite name="test_Ag_Health_Add_Content" verbose="2" >
+	<test name="Test_Ag_Health_Add_Content" >
+		<classes> 
+			<class name="test_cases.Test_New_Project_Wizard" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login"/>
+					<include name="test_Select_Project_Dropdown"/>
+					<include name="test_Select_Instrument"/>
+					<include name="test_Select_EMA_Builder_Page"/>
+					<include name="test_Select_Add_Config_Builder_Page_AgHealth"/>
+					<!--<include name="test_Import_Config_Builder_Page"/>-->
+					<!--<include name="test_Import_Modal_Import_Ag"/> CHANGE NAME OF DEF TO AG HEALTH ONE-->
+					<include name="test_Logout" />
+				</methods>
+		</classes>
+	</test>
+</suite>

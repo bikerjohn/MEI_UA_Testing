@@ -52,7 +52,7 @@ public class Test_Manage_Add_Participants_New_Project extends AbstractTestCase {
 		objBulkAddParticipant = new Bulk_Add_Participants_Page(driver);
 		objtestvars = new TestVars();
 		
-		String matt = "/Users/matt/git/src/Selenium_WebDriver_Testing";
+		String matt = "/Users/matt/Documents/workspace/Copy of Selenium_WebDriver_Testing";
 		String john = "C:/serv/mei/MEI_UA_Testing/";
 		
 		//Check if it's Matt's system via string comparison

@@ -23,7 +23,7 @@ public class Pilr_Project_Settings_Page {
     }
     //Select import option in the Instrument block
     public Project_Import_Modal selectInstrumentImport(){
-    	driver.findElement(instrumentImport).click();
+    	driver.findElements(instrumentImport).get(1).click();
     	return new Project_Import_Modal(driver);
     }
     
