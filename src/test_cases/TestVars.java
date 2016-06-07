@@ -30,6 +30,7 @@ public final class TestVars {
 	 private String participant_status;
 	 private String default_assignments;
 	 private Integer proj_wizard_import_component_li;
+	 private Integer proj_wizard_import_bundle_li;
 	 public String ema_config_defs;
 	 public String liad_instrument_url;
 	 //public String ag_Health;
@@ -44,10 +45,11 @@ public final class TestVars {
 		org="EMA Standard Surveys";
 		liad_org="QA Testing1";
 		//org="PiLRHealth Auto QA Test Org (OWNER)";
-		//org="PiLR Demo (OWNER)";
+		org="PiLR Demo (OWNER)";
 		part_code="922";
 		part_desc="bikerjohn";
-		ema_config="New EMA Config";
+		//ema_config="New EMA Config";
+		ema_config="Delete Config Test";
 		new_ema_config="New EMA Config";
 		surv_name="Test Survey";
 		surv_desc="this is a survey created by an automated qa script";
@@ -66,7 +68,8 @@ public final class TestVars {
 		import_file_name = "C:\\srv\\mei\\bulk_participants.csv";
 		participant_status = "Enrolled";
 		default_assignments = "Default Assignments";
-		proj_wizard_import_component_li = 0;
+		proj_wizard_import_component_li = 1;
+		proj_wizard_import_bundle_li = 0;
 		ema_config_defs = "C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json";
 		//ag_Health = "Ag_Health_Config";
 		
@@ -165,6 +168,9 @@ public final class TestVars {
 		}
 		public final Integer get_Import_Component_li(){
 			return proj_wizard_import_component_li;
+		}
+		public final Integer get_Import_Bundle_li(){
+			return proj_wizard_import_bundle_li;
 		}
 		public final void set_EMA_Config_Defs(String newconfigdefs){
 			this.ema_config_defs=newconfigdefs;

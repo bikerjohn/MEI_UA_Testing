@@ -70,7 +70,7 @@ public class AbstractTestCase {
 		
 		String matt = "/Users/matt/Documents/workspace/Copy of Selenium_WebDriver_Testing";
 		String john = "C:/serv/mei/MEI_UA_Testing/";
-		
+
 		//Check if it's Matt's system via string comparison
 		if((System.getProperty("user.dir")).equals(matt)){
 			
@@ -90,7 +90,7 @@ public class AbstractTestCase {
 		else if((System.getProperty("user.dir")).equals(john)){
 			
 			//John
-			System.out.println(System.setProperty("webdriver.chrome.driver", "C:/Users/eagle/Program Files/chromedriver_win32/chromedriver.exe"));
+			System.setProperty("webdriver.chrome.driver", "C:/Users/eagle/Program Files/chromedriver_win32/chromedriver.exe");
 			
 			//Set path related variables
 			objtestvars = new TestVars();
@@ -103,8 +103,8 @@ public class AbstractTestCase {
 	    //driver = new FirefoxDriver();
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    driver.manage().window().maximize();
-	    //driver.get("https://staging.pilrhealth.com/");
-	    driver.get("https://qa.pilrhealth.com/");
+	    driver.get("https://staging.pilrhealth.com/");
+	    //driver.get("https://qa.pilrhealth.com/");
 	    //objtestvars = new TestVars();
 	    //final Logger log = Logger.getLogger(AbstractTestCase.class);
 	
