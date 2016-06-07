@@ -7,6 +7,7 @@ public final class TestVars {
 	 private String passwrd;
 	 private String prjct;
 	 private String org;
+	 private String liad_org;
 	 private String part_code;
 	 private String part_desc;
 	 private String ema_config;
@@ -31,14 +32,18 @@ public final class TestVars {
 	 private Integer proj_wizard_import_component_li;
 	 private Integer proj_wizard_import_bundle_li;
 	 public String ema_config_defs;
-	
+	 public String liad_instrument_url;
+	 //public String ag_Health;
+	 
 	//set the default value of the test variables
 	public TestVars(){
 		usrname="bikerjohn";
 		passwrd="$Rtchierans9x1";
 		prjct="Delete EMA Config Test";
+		new_prjct="TesterProject";
 		//prjct="test6008";
-		//org="EMA Standard Surveys";
+		org="EMA Standard Surveys";
+		liad_org="QA Testing1";
 		//org="PiLRHealth Auto QA Test Org (OWNER)";
 		org="PiLR Demo (OWNER)";
 		part_code="922";
@@ -54,6 +59,7 @@ public final class TestVars {
 		card_titl="Weather Question";
 		card_text="Is the sun shining today?";
 		instrument_url = "https://raw.githubusercontent.com/pilrhealth/definition-files/master/premium/PiLR%20EMA/base-instrument.json";
+		liad_instrument_url = "https://raw.githubusercontent.com/pilrhealth/definition-files/master/projects/142/base-instrument.json";
 		new_survey_name = "Test Survey";
 		new_survey_description = "This is an automatically generated survey";
 		existing_org = "customer_ema_examples";
@@ -65,13 +71,19 @@ public final class TestVars {
 		proj_wizard_import_component_li = 1;
 		proj_wizard_import_bundle_li = 0;
 		ema_config_defs = "C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json";
-				
+		//ag_Health = "Ag_Health_Config";
 		
 	    }
 	
 	// Public methods
 		public final String getUserName(){
 			return usrname;
+		}
+		public final void setUserName(String newUsernameSet){
+			this.usrname=newUsernameSet;
+		}
+		public final void setPassWrd(String newPassSet){
+			this.passwrd=newPassSet;
 		}
 		public final String getPassWrd(){
 			return passwrd;
@@ -81,6 +93,9 @@ public final class TestVars {
 		}
 		public final String getOrg(){
 			return org;
+		}
+		public final String getLiadOrg(){
+			return liad_org;
 		}
 		public final String getPartCode(){
 			return part_code;
@@ -117,6 +132,9 @@ public final class TestVars {
 		}
 		public final String getInstrumentURL(){
 			return instrument_url ;
+		}
+		public final String getLiadInstrumentURL(){
+			return liad_instrument_url ;
 		}
 		public final String getNewEMAConfig(){
 			return new_ema_config;
@@ -160,4 +178,8 @@ public final class TestVars {
 		public final String get_EMA_Config_Defs(){
 			return ema_config_defs;
 		}
+		public final void set_EMA_Config_Name(String newconfigname){
+			this.ema_config=newconfigname;
+		}
+		
 }

@@ -1,7 +1,13 @@
 package test_cases;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import page_objects.Builder_EMAConfig_Page;
+import page_objects.Export_EMA_Defs_Modal;
+import page_objects.PilrHomePage;
 import page_objects.Pilr_Builder_Page;
+import page_objects.Pilr_Config_Builder;
 import page_objects.Pilr_EMA_App_Home;
 import page_objects.Pilr_Survey_ResponsePage;
 
@@ -28,6 +34,10 @@ public class Test_Config_Builder extends AbstractTestCase {
 	
     Pilr_Survey_ResponsePage objSurvResponsePage;
     Pilr_EMA_App_Home objEMAAppPage;
+    Pilr_Builder_Page objEMABuilderPage;
+	PilrHomePage objHomePage;
+	Pilr_Config_Builder objConfigBuilder;
+
     
     
     public void test_Verify_EMA_App_Page(){
@@ -46,4 +56,18 @@ public class Test_Config_Builder extends AbstractTestCase {
     	Assert.assertTrue(objSurvResponsePage.getSurvey_ResponsePageWelcome().toLowerCase()
     			.contains("view participant survey responses"));
     }
+    @Test
+    public void test_Verify_EMA_Export(){
+    	objHomePage = new PilrHomePage(driver);
+    	objConfigBuilder = new Pilr_Config_Builder(driver);
+        objEMABuilderPage = new Pilr_Builder_Page(driver);
+        By exportFName = By.partialLinkText("export");
+        //objEMABuilderPage.Export_EMAConfig();
+    //Return a 1 on success?
+       // driver.findElement(exportFName).click();
+        System.out.println("Made it in here");
+        driver.findElement(exportFName).click();
+        Assert.assertTrue(true);
+        }
+
 }

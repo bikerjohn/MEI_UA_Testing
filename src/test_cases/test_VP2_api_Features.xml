@@ -1,0 +1,16 @@
+<suite name="test_VP2_api_Features" verbose="2" >
+	<test name="Test_VP2_api_Feats" >
+		<classes> 
+			<class name="test_cases.Test_New_Project_Wizard" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login_Admin" />
+					<include name="test_Select_Project_Admin" />
+					<include name="test_Project_Settings_Admin"/>
+					<include name="test_set_Features_Admin"/>
+					<include name="test_unset_Features_Admin"/>
+					<include name="test_Logout" />
+				</methods>
+		</classes>
+	</test>
+</suite>
