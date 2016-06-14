@@ -1,4 +1,7 @@
 <suite name="pilr_test_export_button" verbose="2" >
+<!--<listeners>
+         <listener class-name="page_objects.TestNGCustomReportListener" />
+    </listeners>-->
 	<test name="Test_Config_Export" >
 		<classes> 
 			<class name="test_cases.Test_Config_Builder" />

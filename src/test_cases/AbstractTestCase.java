@@ -32,11 +32,13 @@ import page_objects.Pilr_EMA_App_Home;
 import page_objects.Pilr_GroupPage;
 import page_objects.Import_EMA_Defs_Modal;
 //import org.apache.log4j.Logger;
-
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import java.net.URL;
 
 public class AbstractTestCase {
 
-	protected WebDriver driver;
+	WebDriver driver;
 	PilrLogin objLogin;
     PilrHomePage objHomePage;
     Admin_Home_Page objAdminHomePage;
@@ -63,14 +65,15 @@ public class AbstractTestCase {
 		super();
 	}
 	
-	
-	@BeforeTest
-	public void setup() {
+	//THIS 
+	@Test(priority=0)
+	public void setup() throws Exception {
 		System.out.println("Working Directory = " + System.getProperty("user.dir"));
 		
 		String matt = "/Users/matt/Documents/workspace/Copy of Selenium_WebDriver_Testing";
 		String john = "C:/serv/mei/MEI_UA_Testing/";
 
+		
 		//Check if it's Matt's system via string comparison
 		if((System.getProperty("user.dir")).equals(matt)){
 			
@@ -85,7 +88,7 @@ public class AbstractTestCase {
 			//System.out.println(objtestvars.get_import_File_Name());
 			System.out.println(objtestvars.get_EMA_Config_Defs());
 			System.out.println("Matt's System");
-			
+
 		}
 		else if((System.getProperty("user.dir")).equals(john)){
 			
@@ -101,13 +104,73 @@ public class AbstractTestCase {
 		}
 		driver = new ChromeDriver();
 	    //driver = new FirefoxDriver();
-	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	    driver.manage().window().maximize();
-	    driver.get("https://staging.pilrhealth.com/");
+	    //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	    //driver.manage().window().maximize();
+	    //driver.get("https://staging.pilrhealth.com/");
 	    //driver.get("https://qa.pilrhealth.com/");
 	    //objtestvars = new TestVars();
 	    //final Logger log = Logger.getLogger(AbstractTestCase.class);
-	
+		
+        String baseUrl = "https://qa.pilrhealth.com/";
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.get(baseUrl);
+        System.out.println("Title : " + driver.getTitle());
+      
+	}
+	@Test(priority=0)
+	public void setup1() throws Exception {
+		System.out.println("Working Directory = " + System.getProperty("user.dir"));
+		
+		String matt = "/Users/matt/Documents/workspace/Copy of Selenium_WebDriver_Testing";
+		String john = "C:/serv/mei/MEI_UA_Testing/";
+
+		
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("chrome");
+		
+        driver = new RemoteWebDriver(
+        new URL("http://localhost:4444/wd/hub"), 
+        capabilities);
+		
+		//Check if it's Matt's system via string comparison
+		if((System.getProperty("user.dir")).equals(matt)){
+			
+			//Matt
+			System.setProperty("webdriver.chrome.driver", "/home/vagrant/chromedriver");
+			
+			//Set path related variables
+			objtestvars = new TestVars();
+			//objtestvars.set_import_File_Name("/Users/matt/Desktop/MEI/bulk_participants.csv");
+			objtestvars.set_EMA_Config_Defs("/Users/matt/Desktop/MEI/ema-configs-standard-surveys-wtriggers.json");
+			
+			//System.out.println(objtestvars.get_import_File_Name());
+			System.out.println(objtestvars.get_EMA_Config_Defs());
+			System.out.println("Matt's System");
+
+		}
+		else if((System.getProperty("user.dir")).equals(john)){
+			
+			//John
+			//System.setProperty("webdriver.chrome.driver", "C:/Users/eagle/Program Files/chromedriver_win32/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "/home/vagrant/chromedriver");
+			
+			//Set path related variables
+			objtestvars = new TestVars();
+			//objtestvars.set_import_File_Name("C:\\srv\\mei\\bulk_participants.csv");
+			objtestvars.set_EMA_Config_Defs("C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json");
+			System.out.println("John's System");
+			
+		}
+		
+        String baseUrl = "https://qa.pilrhealth.com/";
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.get(baseUrl);
+        System.out.println("Title : " + driver.getTitle());
+        String browserName = capabilities.getBrowserName().toLowerCase();
+        System.out.println("Browser : " + browserName);
+      
 	}
     @Test(priority=0)
     public void test_Login(){
@@ -115,6 +178,7 @@ public class AbstractTestCase {
     	//Create Login Page object
     	objLogin = new PilrLogin(driver);
     
+    	System.out.println("Here2");
     	//Verify login page title
     	String loginPageTitle = objLogin.getPageSource();
     	Assert.assertTrue(loginPageTitle.toLowerCase().contains("sign in"));
@@ -572,11 +636,8 @@ public class AbstractTestCase {
     	navbar.clickLogout();
     }
 	@AfterTest
-
     public void tearDown() throws Exception {
     	driver.quit();
-      
-      
     }
 
 }

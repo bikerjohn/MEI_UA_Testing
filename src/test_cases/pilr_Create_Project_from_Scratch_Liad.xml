@@ -1,4 +1,7 @@
 <suite name="pilr_Create_Project_from_Scratch_Liad" verbose="2" >
+<!--<listeners>
+         <listener class-name="page_objects.TestNGCustomReportListener" />
+    </listeners>-->
 	<test name="Test_Create_Project" >
 		<classes> 
 			<class name="test_cases.Test_New_Project_Wizard" />

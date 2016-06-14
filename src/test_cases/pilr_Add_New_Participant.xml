@@ -1,4 +1,7 @@
 <suite name="pilr_Add_New_Participant" verbose="2" >
+<!--<listeners>
+         <listener class-name="page_objects.TestNGCustomReportListener" />
+    </listeners>-->
 	<test name="Test_Add_and_Activate__New_Participant" >
 		<classes> 
 			<class name="test_cases.Test_Coordinate_Page" />

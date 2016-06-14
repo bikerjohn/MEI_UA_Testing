@@ -1,4 +1,7 @@
 <suite name="pilr_Add_EMA_Config_Liad" verbose="2" >
+<!--<listeners>
+         <listener class-name="page_objects.TestNGCustomReportListener" />
+    </listeners>-->
 	<test name="Test_Add_EMA_Config_Liad" >
 		<classes> 
 			<class name="test_cases.Test_New_Project_Wizard" />
