@@ -47,7 +47,7 @@ public class TestNGCustomReportListener implements IReporter {
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
             String outputDirectory) {
         try {
-            writer = createWriter(outputDirectory);
+            writer = createWriter(outputDirectory, suites);
         } catch (IOException e) {
             LOG.error("Unable to create output file", e);
             return;
@@ -64,9 +64,9 @@ public class TestNGCustomReportListener implements IReporter {
         writer.close();
     }
 
-    protected PrintWriter createWriter(String outdir) throws IOException {
+    protected PrintWriter createWriter(String outdir, List<ISuite> suites) throws IOException {
     	String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-    	String reportCustom = timeStamp + "-custom-report.html";
+    	String reportCustom = timeStamp + "custom.html";
         new File(outdir).mkdirs();
         return new PrintWriter(new BufferedWriter(new FileWriter(new File(
                 outdir, reportCustom))));
