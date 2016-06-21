@@ -31,6 +31,8 @@ public final class TestVars {
 	 private Integer proj_wizard_import_component_li;
 	 private Integer proj_wizard_import_bundle_li;
 	 public String ema_config_defs;
+	 private String adminusrname;
+	 private String adminpasswrd;
 	
 	//set the default value of the test variables
 	public TestVars(){
@@ -65,6 +67,9 @@ public final class TestVars {
 		proj_wizard_import_component_li = 1;
 		proj_wizard_import_bundle_li = 0;
 		ema_config_defs = "C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json";
+		adminusrname = "admin";
+		adminpasswrd = "password";
+		
 				
 		
 	    }
