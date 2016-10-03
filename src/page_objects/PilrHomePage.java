@@ -13,7 +13,7 @@ public class PilrHomePage {
 	 
 		private String project = "DualCohortStudy (OWNER)";
 		private String organization = "test_org";
-		//By homePageWelcome = By.cssSelector("i.icon-double-angle-right");
+		By homePageWelcome = By.cssSelector("i.icon-double-angle-right");
 		By PilrProject = By.cssSelector("a[title='"+project+"']");
 		By PilrOrg = By.partialLinkText(organization);
 		By PilrTable = By.cssSelector("table[class^='table table-responsive']");
@@ -30,8 +30,8 @@ public class PilrHomePage {
 	 
 	   //Get the User name from Home Page
 	      public String getHomePageWelcome(){
-	       // return    driver.findElement(homePageWelcome).getText();
-	    	  return    driver.findElement(PilrCurrentUser).getText();
+	        return    driver.findElement(homePageWelcome).getText();
+	    	//  return    driver.findElement(PilrCurrentUser).getText();
 	       }
 	      
 	      //Select a project to work on

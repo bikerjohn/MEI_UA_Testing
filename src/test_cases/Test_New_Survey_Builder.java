@@ -104,7 +104,7 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		
 		objEMAConfigBuilder.createEMAConfig(objtestvars.getNewEMAConfig());
 		Assert.assertTrue(objPilrBuilderPage.getBuilderPageWelcome().toLowerCase()
-				.contains("ema configurations"));
+				.contains("ema configuration"));
 	}
 	@Test
 	public void test_Select_Survey_Builder(){
@@ -113,7 +113,7 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		objPilrBuilderPage.pickEMAConfig(new_project_name);
 		//verify that we landed on the EMA Builder page
     	Assert.assertTrue(objConfigBuilder.getconfigbuilderPageWelcome().toLowerCase()
-    			.contains("ema configuration builder"));
+    			.contains("ema configuration"));
 	}
 	@Test
 	public void test_Add_New_Survey_Modal(){
@@ -186,7 +186,7 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		
 		objCardModal.createCard(objtestvars.getCardTitle(), objtestvars.getCardText());
 		Assert.assertTrue(objSurveyBuilder.getsurveyBuilderWelcome().toLowerCase()
-				.contains(objtestvars.getSurveyName()));
+				.contains(objtestvars.getSurveyName().toLowerCase()));
 	}
 	@Test
 	//import an ema config from a definition file

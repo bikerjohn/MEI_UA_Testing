@@ -9,7 +9,7 @@ public class Pilr_Builder_Page {
 	String csv_LocationMatt = "/Users/matt/Downloads/liad_test1.csv";
 	String emaconfig = "Test Config";
 	String project = "test_project";
-	By ebuilderPageWelcome = By.cssSelector("small");
+	By ebuilderPageWelcome = By.cssSelector("div[class='widget-box transparent']");
 	By emaconfigBuilder = By.partialLinkText(emaconfig);
 	By pickEMAConfig = By.cssSelector("a[href*='" + project + "']");
 	By addConfig = By.cssSelector("a[href='/project/project_name/emaOtsConfig/createConfig']");

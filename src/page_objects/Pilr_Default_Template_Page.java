@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Pilr_Default_Template_Page {
 	WebDriver driver;
-	By deftempWelcome = By.cssSelector("i[class='icon-double-angle-right']");
+	By deftempWelcome = By.cssSelector("small");
 	By addInstrument = By.cssSelector("a[id='newInstrument']");
 	By createNewSetting = By.cssSelector("input[elementid='createSettingForema_otsema_configEpoch1']");
 	By successInstrument = By.cssSelector("div[id='successClose']");

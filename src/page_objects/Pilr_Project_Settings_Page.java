@@ -7,7 +7,7 @@ public class Pilr_Project_Settings_Page {
 	private String instr_def;
 	By projectSettingsWelcome = By.cssSelector("i.icon-double-angle-right");
 	By projectSettingsInstrSuccess = By.cssSelector("div[class='alert alert-success']");
-	By instrumentImport = By.cssSelector("a[data-toggle='modal'][href='#importDefinitionModal']");
+	By instrumentImport = By.cssSelector("a[data-toggle='modal'][href='#importDefinitionModal'][data-entity='instruments']");
 	By projectDesignNav = By.cssSelector("a[id='navConfigurationDesign']");
 	
 	public Pilr_Project_Settings_Page(WebDriver driver){

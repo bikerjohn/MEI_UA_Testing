@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class Pilr_Config_Builder {
 	WebDriver driver;
 	private String surv_name="Test Survey";
-	By configbuilderPageWelcome = By.cssSelector("small");
+	By configbuilderPageWelcome = By.cssSelector("div[class='widget-box transparent']");
 	By addSurvey = By.cssSelector("a[href='#addSurveyModal']");
 	By ProjectSurvey = By.partialLinkText(surv_name);
 	

@@ -69,9 +69,10 @@ public class AbstractTestCase {
 	@Test(priority=0)
 	public void setup() throws Exception {
 		System.out.println("Working Directory = " + System.getProperty("user.dir"));
-		
+
 		String matt = "/Users/matt/Documents/workspace/Copy of Selenium_WebDriver_Testing";
 		String john = "C:/serv/mei/MEI_UA_Testing/";
+		String tyler = "/home/tyler/Github/MEI_UA_Testing";
 
 		
 		//Check if it's Matt's system via string comparison
@@ -102,6 +103,18 @@ public class AbstractTestCase {
 			System.out.println("John's System");
 			
 		}
+		else if((System.getProperty("user.dir")).equals(tyler)){
+			
+			//Tyler
+			System.setProperty("webdriver.chrome.driver", "/home/tyler/UA_Testing_Files/chromedriver");
+			
+			//Set path related variables
+			objtestvars = new TestVars();
+			//objtestvars.set_import_File_Name("/Users/matt/Desktop/MEI/bulk_participants.csv");
+			objtestvars.set_EMA_Config_Defs("/home/tyler/UA_Testing_Files/ema-configs-standard-surveys-wtriggers.json");
+			System.out.println("Tyler's System");
+
+		}
 		driver = new ChromeDriver();
 	    //driver = new FirefoxDriver();
 	    //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -124,6 +137,7 @@ public class AbstractTestCase {
 		
 		String matt = "/Users/matt/Documents/workspace/Copy of Selenium_WebDriver_Testing";
 		String john = "C:/serv/mei/MEI_UA_Testing/";
+		String tyler = "/home/tyler/Github/MEI_UA_Testing";
 
 		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -161,6 +175,18 @@ public class AbstractTestCase {
 			objtestvars.set_EMA_Config_Defs("C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json");
 			System.out.println("John's System");
 			
+		}
+		else if((System.getProperty("user.dir")).equals(tyler)){
+			
+			//Tyler
+			System.setProperty("webdriver.chrome.driver", "/home/tyler/UA_Testing_Files/chromedriver");
+			
+			//Set path related variables
+			objtestvars = new TestVars();
+			//objtestvars.set_import_File_Name("/Users/matt/Desktop/MEI/bulk_participants.csv");
+			objtestvars.set_EMA_Config_Defs("/home/tyler/UA_Testing_Files/ema-configs-standard-surveys-wtriggers.json");
+			System.out.println("Tyler's System");
+
 		}
 		
         String baseUrl = "https://qa.pilrhealth.com/";
@@ -254,6 +280,7 @@ public class AbstractTestCase {
     public void test_Select_Project() {
     	objHomePage = new PilrHomePage(driver);
     	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	
     	Assert.assertTrue(objHomePage.getHomePageWelcome().toLowerCase()
     			.contains("welcome back, bikerjohn!"));
     	
@@ -338,7 +365,7 @@ public class AbstractTestCase {
         // verify that the correct project Coordinate Page is displayed
     	Assert.assertTrue(objEMAAppPage.getEMAAppPageWelcome()
     			.toLowerCase().contains(
-    			"participants"));
+    			"participant summaries"));
     	
     }
     @Test 
@@ -359,7 +386,7 @@ public class AbstractTestCase {
     	//Verify location
     	Assert.assertTrue(objEMAAppPage.getEMAAppPageWelcome()
     			.toLowerCase().contains(
-    			"overview of participants"));
+    			"participant summaries"));
     }
     @Test
     public void test_Select_Survey_Response_Page(){
@@ -515,7 +542,7 @@ public class AbstractTestCase {
     	
     	//verify we landed on the Project Settings Page
     	Assert.assertTrue(objProjectDesign.getProjectDesignWelcome().toLowerCase()
-    			.contains("setup and edit the design of the project (e.i. who uses what, when?)"));
+    			.contains("setup and edit the design of the project (i.e. who uses what, when?)"));
     }
     @Test
     //navigate to the Project Settings Page

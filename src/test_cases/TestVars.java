@@ -38,15 +38,15 @@ public final class TestVars {
 	//set the default value of the test variables
 	public TestVars(){
 		usrname="bikerjohn";
-		passwrd="$Rtchierans9x1";
+		passwrd="$Lghtngrtch1x9";
 		prjct="Delete EMA Config Test";
 		new_prjct="TesterProject";
 		//prjct="test6008";
 		org="EMA Standard Surveys";
 		liad_org="QA Testing1";
-		//org="PiLRHealth Auto QA Test Org (OWNER)";
-		org="PiLR Demo (OWNER)";
-		part_code="922";
+		org="PiLRHealth Auto QA Test Org (OWNER)";
+		//org="PiLR Demo (OWNER)";
+		part_code="924";
 		part_desc="bikerjohn";
 		//ema_config="New EMA Config";
 		ema_config="Delete Config Test";
