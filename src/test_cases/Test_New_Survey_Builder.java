@@ -196,7 +196,7 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		
 		objBuilderPage.import_EMAConfig();
 		Assert.assertTrue(objEMADefsModal.get_EMA_Config_Defs_Welcome().toLowerCase()
-				.contains("import ema configurations"));
+				.contains("ema configurations"));
 		objEMADefsModal.import_EMA_Config_Def_File(objtestvars.get_EMA_Config_Defs());
 	}
 }

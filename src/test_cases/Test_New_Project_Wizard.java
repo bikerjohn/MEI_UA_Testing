@@ -134,7 +134,7 @@ public class Test_New_Project_Wizard extends AbstractTestCase {
 		Assert.assertTrue(objProjectConfig.getConfigOptionsWelcome().toLowerCase()
 				.contains("setup the project design"));
 		objProjectConfig.select_Import_From_Organization();
-		//objProjectConfig.import_Component_From_Organization(objtestvars.get_Import_Bundle_li());
+		objProjectConfig.import_Component_From_Organization(objtestvars.get_Import_Bundle_li());
 	}
 	
 }
