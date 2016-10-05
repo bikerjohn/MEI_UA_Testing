@@ -6,8 +6,8 @@ public class Import_EMA_Defs_Modal {
 	WebDriver driver;
 	By inputImportFName = By.cssSelector("input[id='importFile']");
 	By importButton = By.cssSelector("button[id='next']");
-	By importEMADefsWelcome = By.cssSelector("h4");
-	By importConfig = By.partialLinkText("import");
+	By importEMADefsWelcome = By.cssSelector("label[class='required']");
+	By importConfig = By.linkText("import");
 	By addConfig = By.partialLinkText("Add");
 	By configName = By.cssSelector("input[id='name']");
 	By addButton = By.id("save");

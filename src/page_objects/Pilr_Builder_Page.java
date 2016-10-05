@@ -117,7 +117,7 @@ public class Pilr_Builder_Page {
     }
     //Import the ema config (needs to be split because of need to create import def modal)
     public Import_EMA_Defs_Modal import_EMAConfig(){
-    	//driver.findElement(importConfig).click();
+    	driver.findElement(importConfig).click();
     	return new Import_EMA_Defs_Modal(driver);
     }
     //Export ema config, split due to creation of export modal

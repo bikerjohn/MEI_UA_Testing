@@ -31,7 +31,8 @@ public final class TestVars {
 	 private String default_assignments;
 	 private Integer proj_wizard_import_component_li;
 	 private Integer proj_wizard_import_bundle_li;
-	 public String ema_config_defs;
+	 public String john_ema_config_defs;
+	 public String tyler_ema_config_defs;
 	 public String liad_instrument_url;
 	 //public String ag_Health;
 	 
@@ -70,7 +71,8 @@ public final class TestVars {
 		default_assignments = "Default Assignments";
 		proj_wizard_import_component_li = 1;
 		proj_wizard_import_bundle_li = 0;
-		ema_config_defs = "C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json";
+		john_ema_config_defs = "C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json";
+		tyler_ema_config_defs = "/home/tyler/Github/definition-files/premium/PiLR EMA/sample-ema-config-content-v2.json";
 		//ag_Health = "Ag_Health_Config";
 		
 	    }
@@ -173,10 +175,23 @@ public final class TestVars {
 			return proj_wizard_import_bundle_li;
 		}
 		public final void set_EMA_Config_Defs(String newconfigdefs){
-			this.ema_config_defs=newconfigdefs;
+			if (System.getProperty("user.dir").equals("C:/serv/mei/MEI_UA_Testing/")) {
+				this.john_ema_config_defs=newconfigdefs;
+			}
+			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
+				this.tyler_ema_config_defs=newconfigdefs;	
+			}
 		}
 		public final String get_EMA_Config_Defs(){
-			return ema_config_defs;
+			if (System.getProperty("user.dir").equals("C:/serv/mei/MEI_UA_Testing/")) {
+				return john_ema_config_defs;
+			}
+			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
+				return tyler_ema_config_defs;
+			}
+			else {
+				return null;
+			}
 		}
 		public final void set_EMA_Config_Name(String newconfigname){
 			this.ema_config=newconfigname;

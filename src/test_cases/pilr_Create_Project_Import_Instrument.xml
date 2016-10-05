@@ -43,8 +43,6 @@
 					<include name="test_Nav_Project_Settings" />
 					<include name="test_Nav_Project_Design" />
 					<include name="test_Select_Default_Template" />
-					<include name="test_Add_Instrument_to_Template" />
-					<include name="test_Save_Instrument_Selection" />	
 					<include name="test_Set_EMA_Config" />				
 					<include name="tearDown" />
 				</methods>
