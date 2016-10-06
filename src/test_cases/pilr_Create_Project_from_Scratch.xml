@@ -71,6 +71,7 @@
 					<include name="test_Bulk_Edit_New_Participants" />
 					<include name="test_Prepare_to_Edit_Groups" />
 					<include name="test_Select_Group_Status" />
+					<include name="test_Bulk_Add_Device" />
 					<include name="test_Schedule_Active_Period" />
 					<include name="tearDown" />
 				</methods>

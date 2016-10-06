@@ -10,6 +10,7 @@ public class Bulk_Edit_Participants_Page {
 	By selectAllCheckbox = By.cssSelector("input[id='editSelectAll']");
 	By selectEditButton	= By.cssSelector("button[id='dataTableEdit']");
 	By selectEditGroups = By.cssSelector("a[id='editGroupsModalTrigger']");
+	By selectEditDevices = By.cssSelector("a[id='editDevicesModalTrigger']");
 	By selectEditSchedule = By.cssSelector("a[id='editScheduleParticipantActivePeriodModalTrigger']");
 	private String default_assignments = "Default Assignments";
 	
@@ -42,6 +43,11 @@ public class Bulk_Edit_Participants_Page {
 		driver.findElement(selectEditGroups).click();
 		return new Update_Group_Modal(driver);
 	}
+	//select Groups li under Edit Button (creates Bulk Update Group modal)
+		public Update_Device_Modal select_Edit_Devices(){
+			driver.findElement(selectEditDevices).click();
+			return new Update_Device_Modal(driver);
+		}
 	//select Schedule li under Edit Button (creates Bulk Update Schedule modal)
 	public Update_Schedule_Modal select_Edit_Schedule(){
 		driver.findElement(selectEditSchedule).click();
