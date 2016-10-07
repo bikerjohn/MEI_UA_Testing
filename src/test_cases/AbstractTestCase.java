@@ -276,6 +276,18 @@ public class AbstractTestCase {
 		Assert.assertTrue(objCoordinatePage.getcoordinatePageWelcome().toLowerCase()
 				.contains("coordinate participants and data"));
 	}
+	@Test
+	public void test_Select_New_Project_Name_Admin(){
+		objAdminHomePage = new Admin_Home_Page(driver);
+    	
+    	//Check on Admin home
+    	//System.out.println(objAdminHomePage.getHomePageWelcome().toLowerCase());
+    	Assert.assertTrue(objAdminHomePage.getHomePageWelcome().toLowerCase()
+    			.contains("system summary and access control"));
+    	
+        //select the Project link based on the testvars project value
+    	objAdminHomePage.selectProject(new_project_name);
+	}
     @Test 
     public void test_Select_Project() {
     	objHomePage = new PilrHomePage(driver);

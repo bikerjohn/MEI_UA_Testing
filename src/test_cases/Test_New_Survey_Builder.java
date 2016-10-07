@@ -178,6 +178,21 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		Assert.assertTrue(objCardModal.getcarModalWelcome().toLowerCase() 
 				.contains("create a card"));
 	}
+	@Test 
+	public void test_Select_Card_Type_Media(){
+		objCardTypeModal = new Card_Type_Modal(driver);
+		objCardModal = new Card_Modal(driver);
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+		objTimeWait = new Time_Wait();
+		
+		objSurveyBuilder.create_Card(sec_refid);
+		objTimeWait.Duration(2000);
+		Assert.assertTrue(objCardTypeModal.getcardModalWelcome().toLowerCase()
+				.contains("add a card"));
+		objCardTypeModal.selectVideoQ();
+		Assert.assertTrue(objCardModal.getcarModalWelcome().toLowerCase() 
+				.contains("create a card"));
+	}
 	@Test
 	public void test_Add_Card(){
 		objCardModal = new Card_Modal(driver);

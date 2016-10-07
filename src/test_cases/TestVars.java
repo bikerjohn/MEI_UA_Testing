@@ -41,7 +41,7 @@ public final class TestVars {
 		usrname="bikerjohn";
 		passwrd="$Lghtngrtch1x9";
 		prjct="Delete EMA Config Test";
-		new_prjct="TesterProject";
+		new_prjct="test_project";
 		//prjct="test6008";
 		org="EMA Standard Surveys";
 		liad_org="QA Testing1";

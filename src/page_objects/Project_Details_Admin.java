@@ -20,7 +20,7 @@ public class Project_Details_Admin {
 	   By BulkEditParticipant = By.cssSelector("a[id='bulkEditParticipants']");
 	   By featureLocation = By.cssSelector("input[id='featureString']");
 	   //By featLoc = By.cssSelector("div[class='col-sm-8 wrap-text']:nth-of-type(5)]");
-	   private String featName = "v2_api,activity";
+	   private String featName = "v2_api,activity,media_cards";
 	   
 	   By configChecker = By.cssSelector("input[id='isConfigLocked']");
 	   By projSave = By.cssSelector("button[id*='save']");

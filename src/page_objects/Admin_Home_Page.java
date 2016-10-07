@@ -26,6 +26,7 @@ public class Admin_Home_Page {
 	By AdminProjectChoice= By.cssSelector("a[href='/projectAdmin/show/5612d1cce4b03f1a21c2500f']");
 	By projectDropDown = By.cssSelector("a[id='chooseProject']");
 	By projectDropDownSelect = By.cssSelector("a[id='projectEMA_copy_test']");
+	By projectSearch = By.cssSelector("#project-list > div.row > div.col-sm-8 > div.dataTables_length > form > #search");
 	
    public Admin_Home_Page(WebDriver driver){
  
@@ -44,14 +45,16 @@ public class Admin_Home_Page {
     	  //this.project = prjct;
     	  driver.findElement(HideFeedback).click();
     	  driver.findElement(PilrChooseProj).click();
-	      this.PilrProject = By.partialLinkText(project);
+    	  driver.findElement(By.id("term")).clear();
+    	  driver.findElement(By.id("term")).sendKeys(prjct);
+    	  driver.findElement(projectSearch).click();
+	      driver.findElement(By.partialLinkText(prjct)).click();;
+	      
 	      System.out.println("[Page Object]Select Project");
-	      WebElement element = driver.findElement(PilrProject);
-    	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-    	  //driver.findElement(PilrChooseProj).click();
-    	  driver.findElement(AdminProjectChoice).click();
     	  return new Project_Details_Admin(driver);
       }
+      
+      
      
       public void projDropdown(){
 	    	driver.findElement(projectDropDown).click();
