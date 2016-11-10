@@ -3,6 +3,9 @@ package test_cases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page_objects.Pilr_ParticipantPage;
+import page_objects.Pilr_Participant_Setting;
+import page_objects.Pilr_Upload_Select_File;
+import page_objects.Pilr_Upload_Select_Handler;
 import page_objects.Schedule_Participant_Modal;
 import page_objects.Time_Wait;
 import page_objects.Pilr_GroupPage;
@@ -36,6 +39,9 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     Schedule_Participant_Modal objScheduleParticipantModal;
     Add_Device_Modal objAddParticipantDevice;
     Time_Wait objTimeWait;
+    Pilr_Upload_Select_Handler objUploadHandlerPage;
+    Pilr_Upload_Select_File objUploadFilePage;
+    Pilr_Participant_Setting objParticipantSetting;
    
     @Test (groups={"page_test"})
     public void test_Verify_NewParticipant_Page() {
@@ -66,6 +72,33 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     }
     @Test
     //complete the fields in the add participant modal and hit save
+    public void test_Create_New_Participant_Calorimeter_Human(){
+    	objAddParticipant = new Pilr_Create_Participant(driver);
+    	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	objTimeWait = new Time_Wait();
+    	
+    	objAddParticipant.completeCreateParticipantForm(objtestvars.getCalHumanPartCode(), objtestvars.getPartDesc());
+    }
+    @Test
+    //complete the fields in the add participant modal and hit save
+    public void test_Create_New_Participant_Calorimeter_Infusion(){
+    	objAddParticipant = new Pilr_Create_Participant(driver);
+    	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	objTimeWait = new Time_Wait();
+    	
+    	objAddParticipant.completeCreateParticipantForm(objtestvars.getCalInfusionPartCode(), objtestvars.getPartDesc());
+    }
+    @Test
+    //complete the fields in the add participant modal and hit save
+    public void test_Create_New_Participant_Calorimeter_Burn(){
+    	objAddParticipant = new Pilr_Create_Participant(driver);
+    	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	objTimeWait = new Time_Wait();
+    	
+    	objAddParticipant.completeCreateParticipantForm(objtestvars.getCalBurnPartCode(), objtestvars.getPartDesc());
+    }
+    @Test
+    //complete the fields in the add participant modal and hit save
     public void test_Create_New_Participant(){
     	objAddParticipant = new Pilr_Create_Participant(driver);
     	objCoordinatePage = new Pilr_CoordinatePage(driver);
@@ -85,6 +118,48 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	objTimeWait.Duration(2000);
     	objScheduleParticipantModal.get_Schedule_Participant_Welcome();
     	objScheduleParticipantModal.set_Participant_Start_Date();
+    	objTimeWait.Duration(2000);
+    }
+    @Test
+    //Schedule the new participants active period
+    public void test_Schedule_Human_Participant(){
+    	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	objParticipantPage = new Pilr_ParticipantPage(driver);
+    	objScheduleParticipantModal = new Schedule_Participant_Modal(driver);
+    	objTimeWait = new Time_Wait();
+    	
+    	objParticipantPage.select_Participant_Schedule();
+    	objTimeWait.Duration(2000);
+    	objScheduleParticipantModal.get_Schedule_Participant_Welcome();
+    	objScheduleParticipantModal.set_Past_Start_Date(objtestvars.get_human_start_date());
+    	objTimeWait.Duration(2000);
+    }
+    @Test
+    //Schedule the new participants active period
+    public void test_Schedule_Infusion_Participant(){
+    	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	objParticipantPage = new Pilr_ParticipantPage(driver);
+    	objScheduleParticipantModal = new Schedule_Participant_Modal(driver);
+    	objTimeWait = new Time_Wait();
+    	
+    	objParticipantPage.select_Participant_Schedule();
+    	objTimeWait.Duration(2000);
+    	objScheduleParticipantModal.get_Schedule_Participant_Welcome();
+    	objScheduleParticipantModal.set_Past_Start_Date(objtestvars.get_infusion_start_date());
+    	objTimeWait.Duration(2000);
+    }
+    @Test
+    //Schedule the new participants active period
+    public void test_Schedule_Burn_Participant(){
+    	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	objParticipantPage = new Pilr_ParticipantPage(driver);
+    	objScheduleParticipantModal = new Schedule_Participant_Modal(driver);
+    	objTimeWait = new Time_Wait();
+    	
+    	objParticipantPage.select_Participant_Schedule();
+    	objTimeWait.Duration(2000);
+    	objScheduleParticipantModal.get_Schedule_Participant_Welcome();
+    	objScheduleParticipantModal.set_Past_Start_Date(objtestvars.get_burn_start_date());
     	objTimeWait.Duration(2000);
     }
     @Test
@@ -131,5 +206,79 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	Assert.assertTrue(objParticipantPage.getparticipantPageWelcome()
     			.toLowerCase().contains("participant "+objtestvars.getPartCode()));
     	System.out.println("[Test Case]Participant Page Verified");
+    }
+    // Navigate to Upload a File page from participant page
+    @Test
+    public void test_Select_Upload_File() {
+    	objParticipantPage = new Pilr_ParticipantPage(driver);
+    	objUploadHandlerPage = new Pilr_Upload_Select_Handler(driver);
+    	
+    	objParticipantPage.Select_Upload_File();
+    }
+    @Test
+    public void test_Upload_Human_Data() {
+    	objUploadHandlerPage = new Pilr_Upload_Select_Handler(driver);
+    	objUploadFilePage = new Pilr_Upload_Select_File(driver);
+    	objtestvars = new TestVars();
+		
+		// Select CalRQ handler and click next
+    	objUploadHandlerPage.select_calrq_handler(0);
+    	
+    	// Enter file location (set by system in TestVars)
+    	objUploadFilePage.enter_upload_file(objtestvars.get_calrq_human_data());
+    	
+    	System.out.println("[Test Case]Human Data File Upload Successful");
+    }
+    @Test
+    public void test_Upload_Infusion_Data() {
+    	objUploadHandlerPage = new Pilr_Upload_Select_Handler(driver);
+    	objUploadFilePage = new Pilr_Upload_Select_File(driver);
+    	objtestvars = new TestVars();
+		
+		// Select CalRQ handler and click next
+    	objUploadHandlerPage.select_calrq_handler(0);
+    	
+    	// Enter file location (set by system in TestVars)
+    	objUploadFilePage.enter_upload_file(objtestvars.get_calrq_infusion_data());
+    	System.out.println("[Test Case]Infusion Data File Upload Successful");
+    }
+    @Test
+    public void test_Upload_Burn_Data() {
+    	objUploadHandlerPage = new Pilr_Upload_Select_Handler(driver);
+    	objUploadFilePage = new Pilr_Upload_Select_File(driver);
+    	objtestvars = new TestVars();
+		
+		// Select CalRQ handler and click next
+    	objUploadHandlerPage.select_calrq_handler(0);
+    	
+    	// Enter file location (set by system in TestVars)
+    	objUploadFilePage.enter_upload_file(objtestvars.get_calrq_burn_data());
+    	System.out.println("[Test Case]Burn Data File Upload Successful");
+    }
+    @Test
+    public void test_Set_Infusion_Settings() {
+    	objParticipantPage = new Pilr_ParticipantPage(driver);
+    	objParticipantSetting = new Pilr_Participant_Setting(driver);
+    	
+    	objParticipantPage.navCalrqSettings();
+    	
+    	objParticipantPage.navCO2Setting();
+    	objParticipantSetting.setMFC1();
+    	
+    	objParticipantPage.navN2Setting();
+    	objParticipantSetting.setMFC1();
+    }
+    @Test
+    public void test_Set_Burn_Settings() {
+    	objParticipantPage = new Pilr_ParticipantPage(driver);
+    	objParticipantSetting = new Pilr_Participant_Setting(driver);
+    	
+    	objParticipantPage.navCalrqSettings();
+    	
+    	objParticipantPage.navConfigSetting();
+    	objParticipantSetting.setPullDifferential();
+    	
+    	objParticipantPage.navGasSetting();
+    	objParticipantSetting.setPropane();
     }
 }

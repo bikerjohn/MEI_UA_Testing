@@ -1,0 +1,176 @@
+<suite name="pilr_Calorimeter_Create_Project_Run_Human_Summary" verbose="2" >
+<!--<listeners>
+         <listener class-name="page_objects.TestNGCustomReportListener" />
+    </listeners>-->
+	<test name="Test_Create_Project" >
+		<classes> 
+			<class name="test_cases.Test_New_Project_Wizard" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Login" />
+				<include name="test_Select_Organization_Page" />
+				<include name="test_Create_Project" />
+				<include name="test_Name_New_Project" />
+				<include name="test_Select_New_Project_Config_From_Scratch" />
+				<include name="test_Set_New_Project_Duration" />
+				<include name="test_Select_Project_Settings" />
+				<include name="test_Select_Import_Bundle" />
+				<include name="test_Import_Calorimeter_JSON_from_Raw" />
+				<include name="test_Logout" />
+			</methods>
+		</classes>
+	</test>
+	<test name="Test_Add_Instrument_to_Default_Template" >
+		<classes> 
+			<class name="test_cases.Test_Project_Design_Settings" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Login" />
+				<include name="test_Select_New_Project_Name" />
+				<include name="test_Nav_Project_Settings" />
+				<include name="test_Nav_Project_Design" />
+				<include name="test_Select_Default_Template" />
+				<include name="test_Add_Instrument_to_Template" />
+				<include name="test_Save_Instrument_Selection" />
+				<include name="tearDown" />
+			</methods>
+		</classes>
+	</test>
+	<test name="Test_Add_Schedule_Upload_Data_Human_Participant" >
+		<classes> 
+			<class name="test_cases.Test_Coordinate_Page" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Login" />
+				<include name="test_Select_New_Project_Name" />
+				<include name="test_Add_Participant_Action" />
+				<include name="test_Create_New_Participant_Calorimeter_Human" />
+				<include name="test_Schedule_Human_Participant" />
+				<include name="test_Select_Upload_File" />
+				<include name="test_Upload_Human_Data" />
+				<include name="tearDown" />
+			</methods>
+		</classes>
+	</test>
+	<test name="Create_Event_Tags_Human_Participant" >
+		<classes>
+			<class name="test_cases.Test_Event_Tag_Editor" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Login" />
+				<include name="test_Select_New_Project_Name" />
+				<include name="test_Nav_Event_Tag_Editor" />
+				<include name="test_Select_Human_Participant" />
+				<include name="test_Create_Human_Event_Tags" />
+				<include name="tearDown" />
+			</methods>
+		</classes>
+	</test>
+	<test name="Run_Human_Summary" >
+		<classes>
+			<class name="test_cases.Test_R_Processing_Tool" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Login" />
+				<include name="test_Select_New_Project_Name" />
+				<include name="test_Nav_R_Processing_Tool" />
+				<include name="test_Choose_Human_Job" />
+				<include name="test_Choose_Active_Period" />
+				<include name="test_Run_Human_Job" />
+				<include name="tearDown" />
+			</methods>
+		</classes>
+	</test>
+	<test name="Test_Add_Schedule_Upload_Data_Infusion_Participant" >
+		<classes> 
+			<class name="test_cases.Test_Coordinate_Page" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Login" />
+				<include name="test_Select_New_Project_Name" />
+				<include name="test_Add_Participant_Action" />
+				<include name="test_Create_New_Participant_Calorimeter_Infusion" />
+				<include name="test_Schedule_Infusion_Participant" />
+				<include name="test_Set_Infusion_Settings" />
+				<include name="test_Select_Upload_File" />
+				<include name="test_Upload_Infusion_Data" />
+				<include name="tearDown" />
+			</methods>
+		</classes>
+	</test>
+	<test name="Create_Event_Tags_Infusion_Participant" >
+		<classes>
+			<class name="test_cases.Test_Event_Tag_Editor" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Login" />
+				<include name="test_Select_New_Project_Name" />
+				<include name="test_Nav_Event_Tag_Editor" />
+				<include name="test_Select_Infusion_Participant" />
+				<include name="test_Create_Infusion_Event_Tags" />
+				<include name="tearDown" />
+			</methods>
+		</classes>
+	</test>
+	<test name="Run_Infusion_Summary" >
+		<classes>
+			<class name="test_cases.Test_R_Processing_Tool" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Login" />
+				<include name="test_Select_New_Project_Name" />
+				<include name="test_Nav_R_Processing_Tool" />
+				<include name="test_Choose_Infusion_Job" />
+				<include name="test_Choose_Active_Period" />
+				<include name="test_Run_Infusion_Job" />
+				<include name="tearDown" />
+			</methods>
+		</classes>
+	</test>
+    <test name="Test_Add_Schedule_Upload_Data_Burn_Participant" >
+		<classes> 
+			<class name="test_cases.Test_Coordinate_Page" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Login" />
+				<include name="test_Select_New_Project_Name" />
+				<include name="test_Add_Participant_Action" />
+				<include name="test_Create_New_Participant_Calorimeter_Burn" />
+				<include name="test_Schedule_Burn_Participant" />
+				<include name="test_Set_Burn_Settings" />
+				<include name="test_Select_Upload_File" />
+				<include name="test_Upload_Burn_Data" />
+				<include name="tearDown" />
+			</methods>
+		</classes>
+	</test>
+	<test name="Create_Event_Tags_Burn_Participant" >
+		<classes>
+			<class name="test_cases.Test_Event_Tag_Editor" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Login" />
+				<include name="test_Select_New_Project_Name" />
+				<include name="test_Nav_Event_Tag_Editor" />
+				<include name="test_Select_Burn_Participant" />
+				<include name="test_Create_Burn_Event_Tags" />
+				<include name="tearDown" />
+			</methods>
+		</classes>
+	</test>
+	<test name="Run_Burn_Summary" >
+		<classes>
+			<class name="test_cases.Test_R_Processing_Tool" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Login" />
+				<include name="test_Select_New_Project_Name" />
+				<include name="test_Nav_R_Processing_Tool" />
+				<include name="test_Choose_Burn_Job" />
+				<include name="test_Choose_Active_Period" />
+				<include name="test_Run_Burn_Job" />
+				<include name="tearDown" />
+			</methods>
+		</classes>
+	</test>
+</suite>

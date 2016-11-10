@@ -9,7 +9,14 @@ public class Pilr_ParticipantPage {
 	   By participantPageWelcome = By.cssSelector("h1");
 	   By scheduleParticipant = By.cssSelector("a[id='startDateParticipantActivePeriod']");
 	   By addDeviceTab = By.cssSelector("a[title='Devices']");
+	   By settingsTab = By.cssSelector("a[title='Settings']");
+	   By calrqSettings = By.cssSelector("a[title='CalRQ']");
 	   By addDeviceLink = By.cssSelector("a[id='deviceActivation']");
+	   By uploadFileButton = By.cssSelector("a[id='uploadParticipantFiles']");
+	   By co2MfcSetting = By.xpath("//tr[2]/td[2]/form/input[4]");
+	   By n2MfcSetting = By.xpath("//tr[7]/td[2]/form/input[4]");
+	   By configSetting = By.xpath("//tr[3]/td[2]/form/input[4]");
+	   By gasSetting = By.xpath("//tr[4]/td[2]/form/input[4]");
 	   
 	   
 
@@ -32,5 +39,31 @@ public class Pilr_ParticipantPage {
 	    	driver.findElement(addDeviceTab).click();
 	    	driver.findElement(addDeviceLink).click();
 	    	return new Add_Device_Modal(driver);
+	    }
+	    // click on upload a file button
+	    public Pilr_Upload_Select_Handler Select_Upload_File() {
+	    	driver.findElement(uploadFileButton).click();
+	    	return new Pilr_Upload_Select_Handler(driver);
+	    }
+	    // Navigate to Calrq settings
+	    public void navCalrqSettings() {
+	    	driver.findElement(settingsTab).click();
+	    	driver.findElement(calrqSettings).click();
+	    }
+	    public Pilr_Participant_Setting navCO2Setting() {
+	    	driver.findElement(co2MfcSetting).click();
+	    	return new Pilr_Participant_Setting(driver);
+	    }
+	    public Pilr_Participant_Setting navN2Setting() {
+	    	driver.findElement(n2MfcSetting).click();
+	    	return new Pilr_Participant_Setting(driver);
+	    }
+	    public Pilr_Participant_Setting navConfigSetting() {
+	    	driver.findElement(configSetting).click();
+	    	return new Pilr_Participant_Setting(driver);
+	    }
+	    public Pilr_Participant_Setting navGasSetting() {
+	    	driver.findElement(gasSetting).click();
+	    	return new Pilr_Participant_Setting(driver);
 	    }
 }

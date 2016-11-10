@@ -32,4 +32,12 @@ public class Schedule_Participant_Modal {
 		driver.findElement(saveButton).click();
 		return new Pilr_ParticipantPage(driver);
 	}
+	// set start date for human calorimeter participant
+	public Pilr_ParticipantPage set_Past_Start_Date(String past_date){
+		driver.findElement(periodStartDate).click();
+		driver.findElement(periodStartDate).sendKeys(past_date);
+		driver.findElement(periodStartDate).sendKeys(Keys.TAB);
+		driver.findElement(saveButton).click();
+		return new Pilr_ParticipantPage(driver);
+	}
 }
