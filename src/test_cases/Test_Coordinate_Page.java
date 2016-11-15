@@ -227,6 +227,10 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	// Enter file location (set by system in TestVars)
     	objUploadFilePage.enter_upload_file(objtestvars.get_calrq_human_data());
     	
+    	// Use date range selector
+    	objUploadFilePage.enterDateRange("06/22/2015 - 06/23/2015");
+    	objUploadFilePage.importFile();
+    	
     	System.out.println("[Test Case]Human Data File Upload Successful");
     }
     @Test
@@ -240,6 +244,9 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	
     	// Enter file location (set by system in TestVars)
     	objUploadFilePage.enter_upload_file(objtestvars.get_calrq_infusion_data());
+    	objUploadFilePage.periodSelector();
+    	objUploadFilePage.importFile();
+    	
     	System.out.println("[Test Case]Infusion Data File Upload Successful");
     }
     @Test
@@ -253,6 +260,9 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	
     	// Enter file location (set by system in TestVars)
     	objUploadFilePage.enter_upload_file(objtestvars.get_calrq_burn_data());
+    	objUploadFilePage.periodSelector();
+    	objUploadFilePage.importFile();
+    	
     	System.out.println("[Test Case]Burn Data File Upload Successful");
     }
     @Test

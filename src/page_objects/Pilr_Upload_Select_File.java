@@ -10,6 +10,8 @@ public class Pilr_Upload_Select_File {
 	   By importFileName = By.cssSelector("input[id='importFile']");
 	   By importButton = By.cssSelector("button[id='next']");
 	   By periodSelector = By.cssSelector("input[name='date']");
+	   By dateRangeEntry = By.id("dateRange");
+	   By applyDateRange = By.xpath("//div[3]/div/button");
 
 	   public Pilr_Upload_Select_File(WebDriver driver){
 			 
@@ -25,7 +27,22 @@ public class Pilr_Upload_Select_File {
 		public void enter_upload_file(String filename){
 			driver.findElement(importFileName).clear();
 			driver.findElement(importFileName).sendKeys(filename);
-			driver.findElement(periodSelector).click();
+		}
+		
+		// Choose period selector
+		public void importFile() {
 			driver.findElement(importButton).click();
+		}
+		
+		// Choose period selector
+		public void periodSelector() {
+			driver.findElement(periodSelector).click();
+		}
+		
+		// Enter date range
+		public void enterDateRange(String dateRange) {
+			driver.findElement(dateRangeEntry).clear();
+			driver.findElement(dateRangeEntry).sendKeys(dateRange);
+			driver.findElement(applyDateRange).click();
 		}
 }
