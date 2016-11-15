@@ -256,6 +256,16 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	System.out.println("[Test Case]Burn Data File Upload Successful");
     }
     @Test
+    public void test_Set_Human_Settings() {
+    	objParticipantPage = new Pilr_ParticipantPage(driver);
+    	objParticipantSetting = new Pilr_Participant_Setting(driver);
+    	
+    	objParticipantPage.navCalrqVariables();
+    	
+    	objParticipantPage.navMultipleN2Setting();
+    	objParticipantSetting.setHumanMultipleN2();
+    }
+    @Test
     public void test_Set_Infusion_Settings() {
     	objParticipantPage = new Pilr_ParticipantPage(driver);
     	objParticipantSetting = new Pilr_Participant_Setting(driver);
@@ -277,7 +287,7 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	
     	objParticipantPage.navConfigSetting();
     	objParticipantSetting.setPullDifferential();
-    	
+
     	objParticipantPage.navGasSetting();
     	objParticipantSetting.setPropane();
     }

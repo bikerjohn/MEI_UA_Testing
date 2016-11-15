@@ -66,6 +66,15 @@ public class Test_Event_Tag_Editor extends AbstractTestCase{
     public void test_Create_Human_Event_Tags() {
     	objEventTagEditorBuilder = new Pilr_Event_Tag_Editor_Builder(driver);
     	
+    	// Invalid Data tag
+    	objEventTagEditorBuilder.addNewEvent();
+    	objEventTagEditorBuilder.setEventStartDate("06/22/15");
+    	objEventTagEditorBuilder.setEventStartTime("17:22:24");
+    	objEventTagEditorBuilder.setEventEndDate("06/22/15");
+    	objEventTagEditorBuilder.setEventEndTime("19:42:56");
+    	objEventTagEditorBuilder.chooseTagLabel("Invalid Data");
+    	objEventTagEditorBuilder.saveEvent();
+    	
     	// Human Study tag
     	objEventTagEditorBuilder.addNewEvent();
     	objEventTagEditorBuilder.setEventStartDate("06/22/15");
@@ -77,21 +86,48 @@ public class Test_Event_Tag_Editor extends AbstractTestCase{
     	
     	// Sleep tag
     	objEventTagEditorBuilder.addNewEvent();
-    	objEventTagEditorBuilder.setEventStartDate("06/23/15");
-    	objEventTagEditorBuilder.setEventStartTime("00:02:19");
+    	objEventTagEditorBuilder.setEventStartDate("06/22/15");
+    	objEventTagEditorBuilder.setEventStartTime("23:00:00");
     	objEventTagEditorBuilder.setEventEndDate("06/23/15");
-    	objEventTagEditorBuilder.setEventEndTime("06:53:53");
+    	objEventTagEditorBuilder.setEventEndTime("05:00:00");
     	objEventTagEditorBuilder.chooseTagLabel("Sleep");
     	objEventTagEditorBuilder.saveEvent();
+
+    	// Rest tag
+    	objEventTagEditorBuilder.addNewEvent();
+    	objEventTagEditorBuilder.setEventStartDate("06/23/15");
+    	objEventTagEditorBuilder.setEventStartTime("05:00:00");
+    	objEventTagEditorBuilder.setEventEndDate("06/23/15");
+    	objEventTagEditorBuilder.setEventEndTime("06:45:00");
+    	objEventTagEditorBuilder.chooseTagLabel("Rest");
+    	objEventTagEditorBuilder.saveEvent();    
     	
     	// Exercise tag
     	objEventTagEditorBuilder.addNewEvent();
     	objEventTagEditorBuilder.setEventStartDate("06/23/15");
-    	objEventTagEditorBuilder.setEventStartTime("08:48:16");
+    	objEventTagEditorBuilder.setEventStartTime("08:00:00");
     	objEventTagEditorBuilder.setEventEndDate("06/23/15");
-    	objEventTagEditorBuilder.setEventEndTime("14:15:21");
+    	objEventTagEditorBuilder.setEventEndTime("09:00:00");
     	objEventTagEditorBuilder.chooseTagLabel("Exercise");
-    	objEventTagEditorBuilder.saveEvent();    	
+    	objEventTagEditorBuilder.saveEvent();    
+
+    	// Post Meal tag
+    	objEventTagEditorBuilder.addNewEvent();
+    	objEventTagEditorBuilder.setEventStartDate("06/23/15");
+    	objEventTagEditorBuilder.setEventStartTime("12:00:00");
+    	objEventTagEditorBuilder.setEventEndDate("06/23/15");
+    	objEventTagEditorBuilder.setEventEndTime("12:30:00");
+    	objEventTagEditorBuilder.chooseTagLabel("Post Meal");
+    	objEventTagEditorBuilder.saveEvent();    
+
+    	// Regression Data tag
+    	objEventTagEditorBuilder.addNewEvent();
+    	objEventTagEditorBuilder.setEventStartDate("06/23/15");
+    	objEventTagEditorBuilder.setEventStartTime("11:30:00");
+    	objEventTagEditorBuilder.setEventEndDate("06/23/15");
+    	objEventTagEditorBuilder.setEventEndTime("12:30:00");
+    	objEventTagEditorBuilder.chooseTagLabel("Regression Data");
+    	objEventTagEditorBuilder.saveEvent();  
     	
     	System.out.println("[Test Case]Human Event Tags Created Successful");
     }
@@ -100,7 +136,7 @@ public class Test_Event_Tag_Editor extends AbstractTestCase{
     public void test_Create_Infusion_Event_Tags() {
     	objEventTagEditorBuilder = new Pilr_Event_Tag_Editor_Builder(driver);
     	
-    	// Human Study tag
+    	// Infusion Study tag
     	objEventTagEditorBuilder.addNewEvent();
     	objEventTagEditorBuilder.setEventStartDate("06/29/15");
     	objEventTagEditorBuilder.setEventStartTime("13:00:00");
@@ -109,7 +145,7 @@ public class Test_Event_Tag_Editor extends AbstractTestCase{
     	objEventTagEditorBuilder.chooseTagLabel("Infusion Study");
     	objEventTagEditorBuilder.saveEvent();
     	
-    	// Sleep tag
+    	// Infusion Study tag
     	objEventTagEditorBuilder.addNewEvent();
     	objEventTagEditorBuilder.setEventStartDate("06/29/15");
     	objEventTagEditorBuilder.setEventStartTime("22:30:00");
@@ -118,6 +154,24 @@ public class Test_Event_Tag_Editor extends AbstractTestCase{
     	objEventTagEditorBuilder.chooseTagLabel("Infusion Study");
     	objEventTagEditorBuilder.saveEvent(); 	
     	
+    	// Short Circuit tag
+    	objEventTagEditorBuilder.addNewEvent();
+    	objEventTagEditorBuilder.setEventStartDate("06/30/15");
+    	objEventTagEditorBuilder.setEventStartTime("05:30:00");
+    	objEventTagEditorBuilder.setEventEndDate("06/30/15");
+    	objEventTagEditorBuilder.setEventEndTime("09:00:00");
+    	objEventTagEditorBuilder.chooseTagLabel("Short Circuit");
+    	objEventTagEditorBuilder.saveEvent(); 
+    	
+    	// Null tag
+    	objEventTagEditorBuilder.addNewEvent();
+    	objEventTagEditorBuilder.setEventStartDate("06/29/15");
+    	objEventTagEditorBuilder.setEventStartTime("10:45:11");
+    	objEventTagEditorBuilder.setEventEndDate("06/29/15");
+    	objEventTagEditorBuilder.setEventEndTime("13:00:00");
+    	objEventTagEditorBuilder.chooseTagLabel("Null");
+    	objEventTagEditorBuilder.saveEvent(); 
+    	
     	System.out.println("[Test Case]Infusion Event Tags Created Successful");
     }
     
@@ -125,7 +179,7 @@ public class Test_Event_Tag_Editor extends AbstractTestCase{
     public void test_Create_Burn_Event_Tags() {
     	objEventTagEditorBuilder = new Pilr_Event_Tag_Editor_Builder(driver);
     	
-    	// Human Study tag
+    	// Burn Study tag
     	objEventTagEditorBuilder.addNewEvent();
     	objEventTagEditorBuilder.setEventStartDate("03/18/15");
     	objEventTagEditorBuilder.setEventStartTime("16:00:00");

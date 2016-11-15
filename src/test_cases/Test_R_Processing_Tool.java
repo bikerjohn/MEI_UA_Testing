@@ -7,6 +7,7 @@ import page_objects.Pilr_R_Processing_Job_Details;
 import page_objects.Pilr_R_Processing_Preview;
 import page_objects.Pilr_R_Processing_Select_Job;
 import page_objects.Pilr_R_Processing_Select_Period;
+import page_objects.Pilr_R_Processing_Output_Data;
 
 public class Test_R_Processing_Tool extends AbstractTestCase{
 	
@@ -15,6 +16,7 @@ public class Test_R_Processing_Tool extends AbstractTestCase{
 	Pilr_R_Processing_Preview objRProcessingPreview;
 	Pilr_R_Processing_History objRProcessingHistory;
 	Pilr_R_Processing_Job_Details objRProcessingJobDetails;
+	Pilr_R_Processing_Output_Data objRProcessingJobOutputData;
     
 	// Navigate to R Processing Tool
     @Test
@@ -145,5 +147,38 @@ public class Test_R_Processing_Tool extends AbstractTestCase{
     	
     	Assert.assertTrue(objRProcessingJobDetails.getJobDetailsOutput().toLowerCase()
 				.contains("job completed successfully"));
+    }
+    // View Output Data
+    @Test
+    public void test_View_Human_Data() {
+    	objRProcessingJobDetails = new Pilr_R_Processing_Job_Details(driver);
+    	objRProcessingJobOutputData = new Pilr_R_Processing_Output_Data(driver);
+    	
+    	objRProcessingJobDetails.navJobOutputData();
+    	
+    	Assert.assertTrue(objRProcessingJobOutputData.getJobOutputDataWelcome().toLowerCase()
+    			.contains("viewing dataset"));    	
+    }
+    // View Output Data
+    @Test
+    public void test_View_Infusion_Data() {
+    	objRProcessingJobDetails = new Pilr_R_Processing_Job_Details(driver);
+    	objRProcessingJobOutputData = new Pilr_R_Processing_Output_Data(driver);
+    	
+    	objRProcessingJobDetails.navJobOutputData();
+    	
+    	Assert.assertTrue(objRProcessingJobOutputData.getJobOutputDataWelcome().toLowerCase()
+    			.contains("viewing dataset"));    	
+    }
+    // View Output Data
+    @Test
+    public void test_View_Burn_Data() {
+    	objRProcessingJobDetails = new Pilr_R_Processing_Job_Details(driver);
+    	objRProcessingJobOutputData = new Pilr_R_Processing_Output_Data(driver);
+    	
+    	objRProcessingJobDetails.navJobOutputData();
+    	
+    	Assert.assertTrue(objRProcessingJobOutputData.getJobOutputDataWelcome().toLowerCase()
+    			.contains("viewing dataset"));    	
     }
 }

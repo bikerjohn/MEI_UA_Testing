@@ -10,6 +10,7 @@ public class Pilr_ParticipantPage {
 	   By scheduleParticipant = By.cssSelector("a[id='startDateParticipantActivePeriod']");
 	   By addDeviceTab = By.cssSelector("a[title='Devices']");
 	   By settingsTab = By.cssSelector("a[title='Settings']");
+	   By variablesTab = By.cssSelector("a[title='Variables']");
 	   By calrqSettings = By.cssSelector("a[title='CalRQ']");
 	   By addDeviceLink = By.cssSelector("a[id='deviceActivation']");
 	   By uploadFileButton = By.cssSelector("a[id='uploadParticipantFiles']");
@@ -17,6 +18,7 @@ public class Pilr_ParticipantPage {
 	   By n2MfcSetting = By.xpath("//tr[7]/td[2]/form/input[4]");
 	   By configSetting = By.xpath("//tr[3]/td[2]/form/input[4]");
 	   By gasSetting = By.xpath("//tr[4]/td[2]/form/input[4]");
+	   By multipleN2Setting = By.xpath("//ol[2]/li/ol/li/div/table/tbody/tr[8]/td[2]/form/input[4]");
 	   
 	   
 
@@ -50,6 +52,10 @@ public class Pilr_ParticipantPage {
 	    	driver.findElement(settingsTab).click();
 	    	driver.findElement(calrqSettings).click();
 	    }
+	    // Navigate to Calrq variables
+	    public void navCalrqVariables() {
+	    	driver.findElement(variablesTab).click();
+	    }
 	    public Pilr_Participant_Setting navCO2Setting() {
 	    	driver.findElement(co2MfcSetting).click();
 	    	return new Pilr_Participant_Setting(driver);
@@ -64,6 +70,10 @@ public class Pilr_ParticipantPage {
 	    }
 	    public Pilr_Participant_Setting navGasSetting() {
 	    	driver.findElement(gasSetting).click();
+	    	return new Pilr_Participant_Setting(driver);
+	    }
+	    public Pilr_Participant_Setting navMultipleN2Setting() {
+	    	driver.findElement(multipleN2Setting).click();
 	    	return new Pilr_Participant_Setting(driver);
 	    }
 }

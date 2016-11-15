@@ -46,6 +46,7 @@
 				<include name="test_Add_Participant_Action" />
 				<include name="test_Create_New_Participant_Calorimeter_Human" />
 				<include name="test_Schedule_Human_Participant" />
+				<include name="test_Set_Human_Settings" />
 				<include name="test_Select_Upload_File" />
 				<include name="test_Upload_Human_Data" />
 				<include name="tearDown" />
@@ -77,6 +78,7 @@
 				<include name="test_Choose_Human_Job" />
 				<include name="test_Choose_Active_Period" />
 				<include name="test_Run_Human_Job" />
+				<include name="test_View_Human_Data" />
 				<include name="tearDown" />
 			</methods>
 		</classes>
@@ -123,6 +125,7 @@
 				<include name="test_Choose_Infusion_Job" />
 				<include name="test_Choose_Active_Period" />
 				<include name="test_Run_Infusion_Job" />
+				<include name="test_View_Infusion_Data" />
 				<include name="tearDown" />
 			</methods>
 		</classes>
@@ -169,6 +172,7 @@
 				<include name="test_Choose_Burn_Job" />
 				<include name="test_Choose_Active_Period" />
 				<include name="test_Run_Burn_Job" />
+				<include name="test_View_Burn_Data" />
 				<include name="tearDown" />
 			</methods>
 		</classes>
