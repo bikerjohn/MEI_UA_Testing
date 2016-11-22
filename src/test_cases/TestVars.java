@@ -41,6 +41,7 @@ public final class TestVars {
 	 public String tyler_human_data_file;
 	 public String tyler_infusion_data_file;
 	 public String tyler_burn_data_file;
+	 public String tyler_activity_file;
 	 public String human_start_date;
 	 public String infusion_start_date;
 	 public String burn_start_date;
@@ -90,6 +91,7 @@ public final class TestVars {
 		tyler_human_data_file = "/home/tyler/UA_Testing_Files/calrq-human-data.csv";
 		tyler_infusion_data_file = "/home/tyler/UA_Testing_Files/calrq-infusion-data.csv";
 		tyler_burn_data_file = "/home/tyler/UA_Testing_Files/calrq-burn-data.csv";
+		tyler_activity_file = "/home/tyler/UA_Testing_Files/Time_Tracking_Activities.csv";
 		human_start_date = "06/22/2015";
 		infusion_start_date = "06/29/2015";
 		burn_start_date = "03/18/2015";
@@ -256,6 +258,17 @@ public final class TestVars {
 			}
 			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
 				return tyler_burn_data_file;
+			}
+			else {
+				return null;
+			}
+		}
+		public final String get_activity_file(){
+			if (System.getProperty("user.dir").equals("C:/serv/mei/MEI_UA_Testing/")) {
+				return null;
+			}
+			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
+				return tyler_activity_file;
 			}
 			else {
 				return null;

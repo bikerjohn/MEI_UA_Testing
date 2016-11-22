@@ -214,4 +214,34 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 				.contains("import file"));
 		objEMADefsModal.import_EMA_Config_Def_File(objtestvars.get_EMA_Config_Defs());
 	}
+	@Test
+	//Import activity csv file
+	public void test_Import_Activities() {
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+    	objtestvars = new TestVars();
+		
+		objSurveyBuilder.import_Activities(objtestvars.get_activity_file());
+	}
+	@Test
+	//Link Survey to Activity
+	public void test_Link_Activity() {
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+		
+		objSurveyBuilder.link_Activity("Test Survey");
+	}
+
+	@Test
+	//Select start for first 4 activities
+	public void test_Select_Start_Activities() {
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+		
+		objSurveyBuilder.select_start_activities();
+	}
+	@Test
+	// Navigate to main builder page
+	public void test_Nav_Config_Page() {
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+		
+		objSurveyBuilder.nav_Config_Page();
+	}
 }
