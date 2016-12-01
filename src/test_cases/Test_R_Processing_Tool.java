@@ -86,6 +86,13 @@ public class Test_R_Processing_Tool extends AbstractTestCase{
     	objRProcessingHistory = new Pilr_R_Processing_History(driver);
     	objRProcessingJobDetails = new Pilr_R_Processing_Job_Details(driver);
     	
+    	// Wait 15 seconds
+    	try {
+			Thread.sleep(15000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    	
     	objRProcessingPreview.runJob();
     	Assert.assertTrue(objRProcessingHistory.getJobHistoryWelcome().toLowerCase()
 				.contains("processing job history"));
@@ -96,6 +103,7 @@ public class Test_R_Processing_Tool extends AbstractTestCase{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+    	driver.navigate().refresh();
     	
     	objRProcessingHistory.selectRanJob("Human CalRQ Summary v1.2");
     	
@@ -109,6 +117,13 @@ public class Test_R_Processing_Tool extends AbstractTestCase{
     	objRProcessingHistory = new Pilr_R_Processing_History(driver);
     	objRProcessingJobDetails = new Pilr_R_Processing_Job_Details(driver);
     	
+    	// Wait 15 seconds
+    	try {
+			Thread.sleep(15000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    	
     	objRProcessingPreview.runJob();
     	Assert.assertTrue(objRProcessingHistory.getJobHistoryWelcome().toLowerCase()
 				.contains("processing job history"));
@@ -119,6 +134,7 @@ public class Test_R_Processing_Tool extends AbstractTestCase{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+    	driver.navigate().refresh();
     	
     	objRProcessingHistory.selectRanJob("Infusion CalRQ Summary RC1");
     	
@@ -132,6 +148,13 @@ public class Test_R_Processing_Tool extends AbstractTestCase{
     	objRProcessingHistory = new Pilr_R_Processing_History(driver);
     	objRProcessingJobDetails = new Pilr_R_Processing_Job_Details(driver);
     	
+    	// Wait 15 seconds
+    	try {
+			Thread.sleep(15000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    	
     	objRProcessingPreview.runJob();
     	Assert.assertTrue(objRProcessingHistory.getJobHistoryWelcome().toLowerCase()
 				.contains("processing job history"));
@@ -142,6 +165,7 @@ public class Test_R_Processing_Tool extends AbstractTestCase{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+    	driver.navigate().refresh();
     	
     	objRProcessingHistory.selectRanJob("Burn CalRQ Summary RC1");
     	

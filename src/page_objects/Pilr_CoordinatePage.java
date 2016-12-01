@@ -15,6 +15,7 @@ public class Pilr_CoordinatePage {
 	   By BrowseData = By.cssSelector("a[id='navDataBrowse']");
 	   By BulkAddParticipant = By.cssSelector("a[id='bulkAddParticipant']");
 	   By BulkEditParticipant = By.cssSelector("a[id='bulkEditParticipants']");
+	   By deleteData = By.linkText("Delete Data");
 	  // By InstrumentEMA = By.cssSelector("a[id='navInstrumentsPiLREMAApp']");
 	   
 	   
@@ -80,5 +81,10 @@ public class Pilr_CoordinatePage {
 	  public Bulk_Edit_Participants_Page select_Bulk_Edit_Participants(){
 		  driver.findElement(BulkEditParticipant).click();
 		  return new Bulk_Edit_Participants_Page(driver);
+	  }
+	  
+	  public Delete_Data_Page select_Delete_Data(){
+		  driver.findElement(deleteData).click();
+		  return new Delete_Data_Page(driver);
 	  }
 }

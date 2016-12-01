@@ -6,10 +6,13 @@ import page_objects.Pilr_ParticipantPage;
 import page_objects.Pilr_Participant_Setting;
 import page_objects.Pilr_Upload_Select_File;
 import page_objects.Pilr_Upload_Select_Handler;
+import page_objects.Query_Project_Data;
 import page_objects.Schedule_Participant_Modal;
 import page_objects.Time_Wait;
 import page_objects.Pilr_GroupPage;
 import page_objects.Add_Device_Modal;
+import page_objects.Delete_Data_Details_Page;
+import page_objects.Delete_Data_Page;
 import page_objects.Pilr_CoordinatePage;
 import page_objects.Pilr_Create_Participant;
 
@@ -42,6 +45,9 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     Pilr_Upload_Select_Handler objUploadHandlerPage;
     Pilr_Upload_Select_File objUploadFilePage;
     Pilr_Participant_Setting objParticipantSetting;
+    Delete_Data_Page objDeleteDataPage;
+    Delete_Data_Details_Page objDeleteDataDetailsPage;
+    Query_Project_Data objQueryDataPage;
    
     @Test (groups={"page_test"})
     public void test_Verify_NewParticipant_Page() {
@@ -231,6 +237,18 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	objUploadFilePage.enterDateRange("06/22/2015 - 06/23/2015");
     	objUploadFilePage.importFile();
     	
+    	objQueryDataPage = new Query_Project_Data(driver);
+    	// Wait 120 seconds for file to upload/process
+    	try {
+			Thread.sleep(180000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    	objQueryDataPage.select_File();
+    	
+    	Assert.assertTrue(objQueryDataPage.getFileOutputMessage()
+    			.toLowerCase().contains("successfully parsed"));    	
+    	
     	System.out.println("[Test Case]Human Data File Upload Successful");
     }
     @Test
@@ -247,6 +265,18 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	objUploadFilePage.periodSelector();
     	objUploadFilePage.importFile();
     	
+    	objQueryDataPage = new Query_Project_Data(driver);
+    	// Wait 120 seconds for file to upload/process
+    	try {
+			Thread.sleep(180000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    	objQueryDataPage.select_File();
+    	
+    	Assert.assertTrue(objQueryDataPage.getFileOutputMessage()
+    			.toLowerCase().contains("successfully parsed")); 
+    	
     	System.out.println("[Test Case]Infusion Data File Upload Successful");
     }
     @Test
@@ -262,6 +292,18 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	objUploadFilePage.enter_upload_file(objtestvars.get_calrq_burn_data());
     	objUploadFilePage.periodSelector();
     	objUploadFilePage.importFile();
+    	
+    	objQueryDataPage = new Query_Project_Data(driver);
+    	// Wait 120 seconds for file to upload/process
+    	try {
+			Thread.sleep(180000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    	objQueryDataPage.select_File();
+    	
+    	Assert.assertTrue(objQueryDataPage.getFileOutputMessage()
+    			.toLowerCase().contains("successfully parsed")); 
     	
     	System.out.println("[Test Case]Burn Data File Upload Successful");
     }
@@ -300,5 +342,45 @@ public class Test_Coordinate_Page extends AbstractTestCase {
 
     	objParticipantPage.navGasSetting();
     	objParticipantSetting.setPropane();
+    }
+    @Test
+    public void test_Nav_Delete_Data(){
+    	objCoordinatePage = new Pilr_CoordinatePage(driver);
+    	objDeleteDataPage = new Delete_Data_Page(driver);
+    	
+    	objCoordinatePage.select_Delete_Data();
+    	Assert.assertTrue(objDeleteDataPage.getdeleteDataPageWelcome()
+    			.toLowerCase().contains("dataset history"));
+    	}
+    @Test public void test_Nav_Calrq_Delete_Data() {
+    	objDeleteDataPage = new Delete_Data_Page(driver);
+    	objDeleteDataDetailsPage = new Delete_Data_Details_Page(driver);
+    	
+    	objDeleteDataPage.select_calrq_data();
+    	Assert.assertTrue(objDeleteDataDetailsPage.getdeleteDataDetailsPageWelcome()
+    			.toLowerCase().contains("calrq data"));
+    }
+    @Test public void test_Nav_Haldane_Delete_Data() {
+    	objDeleteDataPage = new Delete_Data_Page(driver);
+    	objDeleteDataDetailsPage = new Delete_Data_Details_Page(driver);
+    	
+    	objDeleteDataPage.select_haldane_data();
+    	Assert.assertTrue(objDeleteDataDetailsPage.getdeleteDataDetailsPageWelcome()
+    			.toLowerCase().contains("calrq data"));
+    }
+    @Test public void test_Attempt_Delete_Calrq_Data() {
+    	objDeleteDataDetailsPage = new Delete_Data_Details_Page(driver);
+    	objDeleteDataDetailsPage.delete_row2_data();
+    	
+    	Assert.assertTrue(objDeleteDataDetailsPage.get_warning_message()
+    			.toLowerCase().contains("this dataset is used to derive"));
+    	
+    	objDeleteDataDetailsPage.back_nav();
+    }
+    @Test public void test_Delete_Haldane_Data() {
+    	objDeleteDataDetailsPage = new Delete_Data_Details_Page(driver);
+    	objDeleteDataDetailsPage.delete_row1_data();
+    	
+    	objDeleteDataDetailsPage.back_nav();
     }
 }

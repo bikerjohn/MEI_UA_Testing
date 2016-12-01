@@ -18,6 +18,8 @@ public class Query_Project_Data {
 	By dv_Survey_Code = By.cssSelector("input[id='search.data.survey_code']");
 	By dv_Survey_EventType	= By.cssSelector("input[id='search.data.event_type']");
 	By dv_Welcome = By.cssSelector("li.active");
+	By firstFile = By.xpath("//td/a");
+	By fileOutputMessage = By.cssSelector("div[class='alert alert-info']");
 	private String startDate, endDate;
 	
 	
@@ -81,6 +83,15 @@ public class Query_Project_Data {
 	//switch to the DataViewer Tab
 	public void switch_Tabs(){
 		driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL +"\t");
+	}
+	
+	//select first uploaded file (for calrq tests)
+	public void select_File() {
+		driver.findElement(firstFile).click();
+	}
+	
+	public String getFileOutputMessage() {
+		return driver.findElement(fileOutputMessage).getText();
 	}
 	
 }

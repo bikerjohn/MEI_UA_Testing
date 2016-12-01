@@ -1,4 +1,4 @@
-<suite name="pilr_Calorimeter_Create_Project_Run_Human_Summary" verbose="2" >
+<suite name="pilr_Calorimeter_Summaries_And_Delete_Data" verbose="2" >
 <!--<listeners>
          <listener class-name="page_objects.TestNGCustomReportListener" />
     </listeners>-->
@@ -173,6 +173,39 @@
 				<include name="test_Choose_Active_Period" />
 				<include name="test_Run_Burn_Job" />
 				<include name="test_View_Burn_Data" />
+				<include name="tearDown" />
+			</methods>
+		</classes>
+	</test>
+	<test name="Test_Add_Schedule_Upload_Delete_Data_Participant" >
+		<classes> 
+			<class name="test_cases.Test_Coordinate_Page" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Login" />
+				<include name="test_Select_New_Project_Name" />
+				<include name="test_Add_Participant_Action" />
+				<include name="test_Create_New_Participant" />
+				<include name="test_Schedule_Burn_Participant" />
+				<include name="test_Set_Burn_Settings" />
+				<include name="test_Select_Upload_File" />
+				<include name="test_Upload_Burn_Data" />
+				<include name="tearDown" />
+			</methods>
+		</classes>
+	</test>
+	<test name="Test_Delete_Data" >
+		<classes> 
+			<class name="test_cases.Test_Coordinate_Page" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Login" />
+				<include name="test_Select_New_Project_Name" />
+				<include name="test_Nav_Delete_Data" />
+				<include name="test_Nav_Calrq_Delete_Data" />
+				<include name="test_Attempt_Delete_Calrq_Data" />
+				<include name="test_Nav_Haldane_Delete_Data" />
+				<include name="test_Delete_Haldane_Data" />
 				<include name="tearDown" />
 			</methods>
 		</classes>

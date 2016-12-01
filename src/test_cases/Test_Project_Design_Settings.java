@@ -42,6 +42,11 @@ public class Test_Project_Design_Settings extends AbstractTestCase {
 		objDefaultTemplate = new Pilr_Default_Template_Page(driver);
 		
 		objProjectDesign.Select_Default_Template();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		Assert.assertTrue(objDefaultTemplate.getDefTemplateWelcome().toLowerCase()
 				.contains("view and edit the participant deployment template configuration"));
 	}

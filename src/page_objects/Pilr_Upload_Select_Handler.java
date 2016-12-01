@@ -25,6 +25,11 @@ public class Pilr_Upload_Select_Handler {
 	    
 	    // Select CalRQ Data file handler and click 
 		public void select_calrq_handler(Integer liPosition){
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			this.li_Position=liPosition;
 			driver.findElements(handlerDropdown).get(0).click();
 			driver.findElements(liCalrqHandler).get(li_Position).click();
