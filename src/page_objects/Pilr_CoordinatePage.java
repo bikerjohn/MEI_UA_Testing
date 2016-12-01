@@ -8,7 +8,7 @@ public class Pilr_CoordinatePage {
 	   private String part_code = "992";
 	   By coordinatePageWelcome = By.cssSelector("i.icon-double-angle-right");
 	   By AddParticipant = By.id("addParticipant");
-	   By ProjectInstrument = By.cssSelector("span.bigger-110");
+	   By EMAInstrument = By.xpath("//a[@id='navInstrumentsPiLREMAApp']/div/span");
 	   By ViewGroups = By.id("navManagementGroupCategories");
 	   By ParticipantDetail = By.id("show" + part_code);
 	   By ProjectSettings = By.cssSelector("i[class='icon-cogs']");
@@ -30,9 +30,9 @@ public class Pilr_CoordinatePage {
 	    }
 	      
 	    //Select the instrument text link
-	    public Pilr_EMA_App_Home selectInstrument() {
-	    	  driver.findElement(ProjectInstrument).click();
-	    	  System.out.println("[Page Object]Select Instrument");
+	    public Pilr_EMA_App_Home selectEMAInstrument() {
+	    	  driver.findElement(EMAInstrument).click();
+	    	  System.out.println("[Page Object]Select EMA Instrument");
 	    	  return new Pilr_EMA_App_Home(driver);
 	    }	 
 	    
