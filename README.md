@@ -1,6 +1,9 @@
 # MEI_UA_Testing
 Cleaned up repo for the Selenium WebDriver User Acceptance Tests
 
+Some info on setting up your environment:  
+https://github.com/MeiResearchLtd/developer-admin/wiki/Selenium-Testing-Environment
+
 ## Test Scenarios
 * pilr_Create_Project_from_Scratch.xml
   * Create empty project
