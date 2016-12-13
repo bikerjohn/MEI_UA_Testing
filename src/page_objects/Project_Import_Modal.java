@@ -9,6 +9,7 @@ public class Project_Import_Modal {
 	By importFromURL = By.cssSelector("a[title='URL']");
 	By fieldURL = By.cssSelector("input[id='importURL']");
 	By importButton = By.cssSelector("button[id='next']");
+	By projectImportModalWelcome2 = By.cssSelector("div[id='marketplace']");
 	
 	public Project_Import_Modal(WebDriver driver){
 		this.driver = driver;
@@ -16,6 +17,9 @@ public class Project_Import_Modal {
 	//get Import Modal Page welcome
 	public String getProjectImportModalWelcome(){
         return    driver.findElement(projectImportModalWelcome).getText();
+    }
+	public String getProjectImportModalWelcome2(){
+        return    driver.findElement(projectImportModalWelcome2).getText();
     }
 	//select Import from a URL
 	public void importInstrumentfromURL(String urlAddress){

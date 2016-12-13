@@ -1,4 +1,7 @@
 <suite name="pilr_Test_Browse_Data_Dataviewer" verbose="2" >
+<!--<listeners>
+         <listener class-name="page_objects.TestNGCustomReportListener" />
+    </listeners>-->
 	<test name="Test_View_Project_Data" >
 		<classes> 
 			<class name="test_cases.Test_Browse_Data" />

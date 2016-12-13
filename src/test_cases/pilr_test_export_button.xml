@@ -1,0 +1,20 @@
+<suite name="pilr_test_export_button" verbose="2" >
+<!--<listeners>
+         <listener class-name="page_objects.TestNGCustomReportListener" />
+    </listeners>-->
+	<test name="Test_Config_Export" >
+		<classes> 
+			<class name="test_cases.Test_Config_Builder" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login" />
+					<include name="test_Select_Project" />
+					<include name="test_Select_Instrument" />
+					<include name="test_Select_EMA_Builder_Page" />
+					<include name="test_Verify_EMA_Export" />
+					<include name="test_Logout" />				
+					<include name="tearDown" />
+				</methods>
+		</classes>
+	</test>
+</suite>

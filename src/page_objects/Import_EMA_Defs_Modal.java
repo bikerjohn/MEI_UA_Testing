@@ -6,11 +6,31 @@ public class Import_EMA_Defs_Modal {
 	WebDriver driver;
 	By inputImportFName = By.cssSelector("input[id='importFile']");
 	By importButton = By.cssSelector("button[id='next']");
-	By importEMADefsWelcome = By.cssSelector("h4");
+	By importEMADefsWelcome = By.cssSelector("label[class='required']");
+	By importConfig = By.linkText("import");
+	By addConfig = By.partialLinkText("Add");
+	By configName = By.cssSelector("input[id='name']");
+	By addButton = By.id("save");
 	
 	public Import_EMA_Defs_Modal(WebDriver driver){
 		this.driver = driver;
 	}
+	public void import_EMAConfig(){
+		driver.findElement(importConfig).click();
+	}
+	
+	public void add_NewConfig(){
+		driver.findElement(addConfig).click();
+	}
+	
+	public Pilr_Config_Builder enter_NewConfig(String def_name){
+		System.out.println(def_name);
+		driver.findElement(configName).click();
+		driver.findElement(configName).sendKeys(def_name);
+		driver.findElement(addButton).click();
+		return new Pilr_Config_Builder(driver);
+	}
+	
 	//return ema config defs welcome
 	public String get_EMA_Config_Defs_Welcome(){
 		return driver.findElement(importEMADefsWelcome).getText();

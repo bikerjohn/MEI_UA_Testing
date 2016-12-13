@@ -1,4 +1,7 @@
 <suite name="pilr_Create_Project_from_Scratch" verbose="2" >
+    <!--<listeners>
+         <listener class-name="page_objects.TestNGCustomReportListener" />
+    </listeners>-->
 	<test name="Test_Create_Project" >
 		<classes> 
 			<class name="test_cases.Test_New_Project_Wizard" />
@@ -68,6 +71,7 @@
 					<include name="test_Bulk_Edit_New_Participants" />
 					<include name="test_Prepare_to_Edit_Groups" />
 					<include name="test_Select_Group_Status" />
+					<include name="test_Bulk_Add_Device" />
 					<include name="test_Schedule_Active_Period" />
 					<include name="tearDown" />
 				</methods>

@@ -6,6 +6,7 @@ public class Card_Type_Modal {
 	WebDriver driver;
 	By cardModalWelcome = By.cssSelector("div[id*='addSurveyCardModal'] div[class='table-header']");
 	By yesnoQuestion = By.cssSelector("a[href*='yesno']");
+	By video = By.cssSelector("a[href*='video']");
 	
 	public Card_Type_Modal(WebDriver driver){
 		this.driver = driver;
@@ -16,6 +17,10 @@ public class Card_Type_Modal {
 	}
 	public Card_Modal selectYesNoQ (){
 		driver.findElement(yesnoQuestion).click();
+		return new Card_Modal(driver);
+	}
+	public Card_Modal selectVideoQ() {
+		driver.findElement(video).click();
 		return new Card_Modal(driver);
 	}
 }

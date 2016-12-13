@@ -1,4 +1,7 @@
 <suite name="pilr_Create_New_Survey_Existing_Project" verbose="2" >
+<!--<listeners>
+         <listener class-name="page_objects.TestNGCustomReportListener" />
+    </listeners>-->
 	<test name="Test_Create_Survey" >
 		<classes> 
 			<class name="test_cases.Test_New_Survey_Builder" />

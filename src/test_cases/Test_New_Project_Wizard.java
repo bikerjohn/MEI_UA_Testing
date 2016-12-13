@@ -81,6 +81,12 @@ public class Test_New_Project_Wizard extends AbstractTestCase {
 		objProjectSettings.selectInstrumentImport();
 	}
 	@Test
+	public void test_Select_Import_Bundle(){
+		Assert.assertTrue(objProjectSettings.getprojectSettingsWelcome()
+				.toLowerCase().contains("add, edit, or remove the components used on this project"));
+		objProjectSettings.selectBundleImport();
+	}
+	@Test
 	public void test_Import_Instrument_JSON_from_Raw() {
 		objImportInstrumentModal = new Project_Import_Modal(driver);
 		try {
@@ -92,6 +98,40 @@ public class Test_New_Project_Wizard extends AbstractTestCase {
 		Assert.assertTrue(objImportInstrumentModal.getProjectImportModalWelcome()
 			.toLowerCase().contains("import instruments"));
 		objImportInstrumentModal.importInstrumentfromURL(objtestvars.getInstrumentURL());
+		Assert.assertTrue(objProjectSettings.getprojectSuccessMsg()
+				.toLowerCase().contains("project components were added successfully"));
+	}
+	@Test
+	public void test_Import_Calorimeter_JSON_from_Raw() {
+		objImportInstrumentModal = new Project_Import_Modal(driver);
+		try {
+    		Thread.sleep(5000); 
+    	}
+    	catch(InterruptedException ex) {
+    		Thread.currentThread().interrupt();
+    	}
+		Assert.assertTrue(objImportInstrumentModal.getProjectImportModalWelcome()
+			.toLowerCase().contains("import bundle"));
+		objImportInstrumentModal.importInstrumentfromURL(objtestvars.getCalorimeterURL());
+		Assert.assertTrue(objProjectSettings.getprojectSuccessMsg()
+				.toLowerCase().contains("project components were added successfully"));
+	}
+	@Test
+	public void test_Import_Instrument_JSON_from_Raw_Liad() {
+		objImportInstrumentModal = new Project_Import_Modal(driver);
+		try {
+			System.out.println("Before sleep\n");
+    		Thread.sleep(5000); 
+    	}
+    	catch(InterruptedException ex) {
+    		System.out.println("Exception handler\n");
+    		Thread.currentThread().interrupt();
+    	}
+		System.out.println(objImportInstrumentModal.getProjectImportModalWelcome2()
+			.toLowerCase());
+		Assert.assertTrue(objImportInstrumentModal.getProjectImportModalWelcome2()
+			.toLowerCase().contains("select components from the marketplace."));
+		objImportInstrumentModal.importInstrumentfromURL(objtestvars.getLiadInstrumentURL());
 		Assert.assertTrue(objProjectSettings.getprojectSuccessMsg()
 				.toLowerCase().contains("project components were added successfully"));
 	}

@@ -104,7 +104,7 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		
 		objEMAConfigBuilder.createEMAConfig(objtestvars.getNewEMAConfig());
 		Assert.assertTrue(objPilrBuilderPage.getBuilderPageWelcome().toLowerCase()
-				.contains("ema configurations"));
+				.contains("ema configuration"));
 	}
 	@Test
 	public void test_Select_Survey_Builder(){
@@ -113,7 +113,7 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		objPilrBuilderPage.pickEMAConfig(new_project_name);
 		//verify that we landed on the EMA Builder page
     	Assert.assertTrue(objConfigBuilder.getconfigbuilderPageWelcome().toLowerCase()
-    			.contains("ema configuration builder"));
+    			.contains("ema configuration"));
 	}
 	@Test
 	public void test_Add_New_Survey_Modal(){
@@ -178,6 +178,21 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		Assert.assertTrue(objCardModal.getcarModalWelcome().toLowerCase() 
 				.contains("create a card"));
 	}
+	@Test 
+	public void test_Select_Card_Type_Media(){
+		objCardTypeModal = new Card_Type_Modal(driver);
+		objCardModal = new Card_Modal(driver);
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+		objTimeWait = new Time_Wait();
+		
+		objSurveyBuilder.create_Card(sec_refid);
+		objTimeWait.Duration(2000);
+		Assert.assertTrue(objCardTypeModal.getcardModalWelcome().toLowerCase()
+				.contains("add a card"));
+		objCardTypeModal.selectVideoQ();
+		Assert.assertTrue(objCardModal.getcarModalWelcome().toLowerCase() 
+				.contains("create a card"));
+	}
 	@Test
 	public void test_Add_Card(){
 		objCardModal = new Card_Modal(driver);
@@ -186,7 +201,7 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		
 		objCardModal.createCard(objtestvars.getCardTitle(), objtestvars.getCardText());
 		Assert.assertTrue(objSurveyBuilder.getsurveyBuilderWelcome().toLowerCase()
-				.contains(objtestvars.getSurveyName()));
+				.contains(objtestvars.getSurveyName().toLowerCase()));
 	}
 	@Test
 	//import an ema config from a definition file
@@ -194,9 +209,39 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		objBuilderPage = new Pilr_Builder_Page(driver);
 		objEMADefsModal = new Import_EMA_Defs_Modal(driver);
 		
-		objBuilderPage.Import_EMAConfig();
+		objBuilderPage.import_EMAConfig();
 		Assert.assertTrue(objEMADefsModal.get_EMA_Config_Defs_Welcome().toLowerCase()
-				.contains("import ema configurations"));
+				.contains("import file"));
 		objEMADefsModal.import_EMA_Config_Def_File(objtestvars.get_EMA_Config_Defs());
+	}
+	@Test
+	//Import activity csv file
+	public void test_Import_Activities() {
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+    	objtestvars = new TestVars();
+		
+		objSurveyBuilder.import_Activities(objtestvars.get_activity_file());
+	}
+	@Test
+	//Link Survey to Activity
+	public void test_Link_Activity() {
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+		
+		objSurveyBuilder.link_Activity("Test Survey");
+	}
+
+	@Test
+	//Select start for first 4 activities
+	public void test_Select_Start_Activities() {
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+		
+		objSurveyBuilder.select_start_activities();
+	}
+	@Test
+	// Navigate to main builder page
+	public void test_Nav_Config_Page() {
+		objSurveyBuilder = new Pilr_Survey_Builder(driver);
+		
+		objSurveyBuilder.nav_Config_Page();
 	}
 }

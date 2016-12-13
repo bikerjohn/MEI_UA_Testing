@@ -34,12 +34,20 @@ public class Pilr_Org_Page {
 	//Delete a project by selecting the trash can icon
 	public Delete_Project_Modal delete_Project(String projName){
 		objTimeWait = new Time_Wait();
-		this.projectName = projectName + projName + "']";
-		By deleteProject = By.cssSelector(projectName);
-		WebElement element = driver.findElement(deleteProject);
-    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-    	objTimeWait.Duration(1000);
-		driver.findElement(deleteProject).click();
+		//this.projectName = projectName + projName + "']";
+		String local_test = "a[href*='" + projName + "']";
+		
+		
+		//System.out.println(projectName);
+		//By deleteProject = By.cssSelector(projectName);
+		System.out.println("After selector\n");
+		System.out.println(local_test);
+		WebElement element = driver.findElement(By.cssSelector(local_test));
+    	//((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",element );//, element);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("javascript:window.scrollBy(250,350)");
+		objTimeWait.Duration(1000);
+		driver.findElement(By.cssSelector(local_test)).click();
 		return new Delete_Project_Modal(driver);
 	}
 }

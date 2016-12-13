@@ -10,6 +10,7 @@ import page_objects.Bulk_Edit_Participants_Page;
 import page_objects.PilrHomePage;
 import page_objects.Pilr_CoordinatePage;
 import page_objects.Time_Wait;
+import page_objects.Update_Device_Modal;
 import page_objects.Update_Group_Modal;
 import page_objects.Update_Schedule_Modal;
 
@@ -18,6 +19,7 @@ public class Test_Manage_Add_Participants_New_Project extends AbstractTestCase {
 	Bulk_Add_Participants_Page objBulkAddParticipant;
 	Bulk_Edit_Participants_Page objBulkEditParticipants;
 	Update_Group_Modal objGroupModal;
+	Update_Device_Modal objDeviceModal;
 	Update_Schedule_Modal objScheduleModal;
 	TestVars objtestvars;
 	Time_Wait objTimeWait;
@@ -52,8 +54,9 @@ public class Test_Manage_Add_Participants_New_Project extends AbstractTestCase {
 		objBulkAddParticipant = new Bulk_Add_Participants_Page(driver);
 		objtestvars = new TestVars();
 		
-		String matt = "/Users/matt/git/src/Selenium_WebDriver_Testing";
+		String matt = "/Users/matt/Documents/workspace/Copy of Selenium_WebDriver_Testing";
 		String john = "C:/serv/mei/MEI_UA_Testing/";
+		String tyler = "/home/tyler/Github/MEI_UA_Testing";
 		
 		//Check if it's Matt's system via string comparison
 		if((System.getProperty("user.dir")).equals(matt)){
@@ -61,6 +64,8 @@ public class Test_Manage_Add_Participants_New_Project extends AbstractTestCase {
 		}
 		else if((System.getProperty("user.dir")).equals(john)){
 			objtestvars.set_import_File_Name("C:\\srv\\mei\\bulk_participants.csv");
+		}else if((System.getProperty("user.dir")).equals(tyler)){
+			objtestvars.set_import_File_Name("/home/tyler/UA_Testing_Files/bulk_participants.csv");
 		}
 		
 		objBulkAddParticipant.bulk_add_Participants(objtestvars.get_import_File_Name());
@@ -107,6 +112,24 @@ public class Test_Manage_Add_Participants_New_Project extends AbstractTestCase {
 		
 		//Assert.assertTrue(objGroupModal.Bulk_Update_Status().toLowerCase()
 		//		.contains("bulk update success"));
+		objGroupModal.close_Update_Group_Modal();
+		objTimeWait.Duration(2000);
+	}
+	
+	@Test
+	//add devices to participants using bulk edit
+	public void test_Bulk_Add_Device(){
+		objBulkEditParticipants = new Bulk_Edit_Participants_Page(driver);
+		objDeviceModal = new Update_Device_Modal(driver);
+		objBulkEditParticipants.select_Edit_Button();
+		objBulkEditParticipants.select_Edit_Devices();
+		objTimeWait.Duration(4000);
+		Assert.assertTrue(objDeviceModal.get_Device_Modal_Welcome().toLowerCase()
+				.contains("bulk update devices"));
+		objTimeWait = new Time_Wait();
+		objTimeWait.Duration(2000);
+		objDeviceModal.bulk_add_devices();
+		
 		objGroupModal.close_Update_Group_Modal();
 		objTimeWait.Duration(2000);
 	}

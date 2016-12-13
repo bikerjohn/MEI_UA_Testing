@@ -19,7 +19,9 @@ public class PilrHomePage {
 		By PilrTable = By.cssSelector("table[class^='table table-responsive']");
 		By PilrOrgExp = By.cssSelector("i[class='icon-chevron-right'] + *");
 		By PilrChooseProj = By.cssSelector("a[title='Choose a Project']");
-	     
+		By PilrCurrentUser = By.cssSelector("a[id='yourAccountDropdown']"); 
+		
+		
 	   public PilrHomePage(WebDriver driver){
 	 
 	       this.driver = driver;
@@ -29,6 +31,7 @@ public class PilrHomePage {
 	   //Get the User name from Home Page
 	      public String getHomePageWelcome(){
 	        return    driver.findElement(homePageWelcome).getText();
+	    	//  return    driver.findElement(PilrCurrentUser).getText();
 	       }
 	      
 	      //Select a project to work on
