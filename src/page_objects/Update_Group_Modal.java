@@ -8,7 +8,7 @@ public class Update_Group_Modal {
 	By participantStatus = By.cssSelector("select[name='groupIds']");
 	By templateAssignments = By.cssSelector("select[name='groupIds']");
 	By saveButton = By.cssSelector("input[id='Save']");
-	By doneButton = By.cssSelector("button[data-dismiss='modal']");
+	By doneButton = By.xpath("//div[2]/div[2]/button");
 	By updateSuccess = By.cssSelector("div[class='table-header']");
 	private String part_status = "Enrolled";
 	private String temp_assignments = "Default Assignments";

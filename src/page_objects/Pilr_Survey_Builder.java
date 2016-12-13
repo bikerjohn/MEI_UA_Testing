@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class Pilr_Survey_Builder {
 	WebDriver driver;
 	private String surv_name="Test Survey";
-	By survBuilderWelcome = By.cssSelector("b[class='green']");
+	By survBuilderWelcome = By.cssSelector("div[class='widget-box transparent']");
 	By selectSurvey = By.linkText(surv_name);
 	By addSection = By.cssSelector("i[class='icon icon-plus']");
 	By addCard = By.linkText("Add a Card");

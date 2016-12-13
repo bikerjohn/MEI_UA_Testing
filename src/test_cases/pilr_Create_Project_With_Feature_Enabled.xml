@@ -1,4 +1,4 @@
-<suite name="pilr_Create_Project_from_Scratch" verbose="2" >
+<suite name="pilr_Create_Project_With_Feature_Enabled" verbose="2" >
     <!--<listeners>
          <listener class-name="page_objects.TestNGCustomReportListener" />
     </listeners>-->
@@ -20,7 +20,20 @@
 				</methods>
 				</classes>
 		</test>
-		<test name="Test_Create_Survey" >
+		<test name="Test_Add_Feature" >
+			<classes>
+				<class name="test_cases.Test_New_Project_Wizard" />
+				<methods>
+					<include name="setup" />
+					<include name="test_Login_Admin" />
+					<include name="test_Select_New_Project_Name_Admin" />
+					<include name="test_Project_Settings_Admin"/>
+					<include name="test_set_Features_Admin"/>
+					<include name="test_Logout" />
+				</methods>
+			</classes>
+		</test>
+		<test name="Test_Create_Media_Survey" >
 		<classes> 
 				<class name="test_cases.Test_New_Survey_Builder" />
 				<methods>
@@ -35,7 +48,7 @@
 					<include name="test_Select_Survey_Builder" />
 					<include name="test_Add_New_Survey_Modal" />
 					<include name="test_Add_New_Section" />
-					<include name="test_Select_Card_Type" />
+					<include name="test_Select_Card_Type_Media" />
 					<include name="test_Add_Card" />
 					<include name="tearDown" />
 				</methods>

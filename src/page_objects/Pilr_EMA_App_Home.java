@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class Pilr_EMA_App_Home {
 	WebDriver driver;
 	
-	By EmaappPageWelcome = By.cssSelector("small");
+	By EmaappPageWelcome = By.cssSelector("h4[class='lighter smaller']");
 	By SurvResponseLink = By.linkText("Survey Responses");
 	By ebuilderLink = By.linkText("Builder");
 	

@@ -37,7 +37,8 @@ public class Test_EMA_App_Home extends AbstractTestCase {
     	//navigate to survey response page
     	objEMAAppPage.selectSurvResponse();
     	//verify that we landed on survey response page
+    	System.out.println(objSurvResponsePage.getSurvey_ResponsePageWelcome().toLowerCase());
     	Assert.assertTrue(objSurvResponsePage.getSurvey_ResponsePageWelcome().toLowerCase()
-    			.contains("view participant survey responses"));
+    			.contains("survey responses"));
     }
 }
