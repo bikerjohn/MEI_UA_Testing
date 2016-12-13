@@ -63,7 +63,7 @@ public class TestPilrSelectProject extends AbstractTestCase {
     			"coordinate participants and data"));
     	System.out.println("[Test Case]Coordinate Page Verified");
     	//select the Instrument link 
-    	objCoordinatePage.selectInstrument();
+    	objCoordinatePage.selectEMAInstrument();
      
         // verify that the correct project Coordinate Page is displayed
     	

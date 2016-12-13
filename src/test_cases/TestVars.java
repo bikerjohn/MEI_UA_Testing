@@ -10,6 +10,9 @@ public final class TestVars {
 	 private String liad_org;
 	 private String part_code;
 	 private String part_desc;
+	 private String cal_human_part_code;
+	 private String cal_infusion_part_code;
+	 private String cal_burn_part_code;
 	 private String ema_config;
 	 private String new_ema_config;
 	 private String surv_name;
@@ -23,6 +26,7 @@ public final class TestVars {
 	 private String new_survey_name;
 	 private String new_survey_description;
 	 private String instrument_url;
+	 private String calorimeter_url;
 	 private String existing_org;
 	 private String dv_start_date;
 	 private String dv_end_date;
@@ -34,6 +38,13 @@ public final class TestVars {
 	 public String john_ema_config_defs;
 	 public String tyler_ema_config_defs;
 	 public String liad_instrument_url;
+	 public String tyler_human_data_file;
+	 public String tyler_infusion_data_file;
+	 public String tyler_burn_data_file;
+	 public String tyler_activity_file;
+	 public String human_start_date;
+	 public String infusion_start_date;
+	 public String burn_start_date;
 	 //public String ag_Health;
 	 
 	//set the default value of the test variables
@@ -48,6 +59,9 @@ public final class TestVars {
 		org="PiLRHealth Auto QA Test Org (OWNER)";
 		//org="PiLR Demo (OWNER)";
 		part_code="924";
+		cal_human_part_code="human";
+		cal_infusion_part_code="infusion";
+		cal_burn_part_code="burn";
 		part_desc="bikerjohn";
 		//ema_config="New EMA Config";
 		ema_config="Delete Config Test";
@@ -60,6 +74,7 @@ public final class TestVars {
 		card_titl="Weather Question";
 		card_text="Is the sun shining today?";
 		instrument_url = "https://raw.githubusercontent.com/pilrhealth/definition-files/master/premium/PiLR%20EMA/base-instrument.json";
+		calorimeter_url = "https://raw.githubusercontent.com/pilrhealth/definition-files/master/standard/CalRQ/setup-bundle-1.json";
 		liad_instrument_url = "https://raw.githubusercontent.com/pilrhealth/definition-files/master/projects/142/base-instrument.json";
 		new_survey_name = "Test Survey";
 		new_survey_description = "This is an automatically generated survey";
@@ -73,6 +88,13 @@ public final class TestVars {
 		proj_wizard_import_bundle_li = 0;
 		john_ema_config_defs = "C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json";
 		tyler_ema_config_defs = "/home/tyler/Github/definition-files/premium/PiLR EMA/sample-ema-config-content-v2.json";
+		tyler_human_data_file = "/home/tyler/UA_Testing_Files/calrq-human-data.csv";
+		tyler_infusion_data_file = "/home/tyler/UA_Testing_Files/calrq-infusion-data.csv";
+		tyler_burn_data_file = "/home/tyler/UA_Testing_Files/calrq-burn-data.csv";
+		tyler_activity_file = "/home/tyler/UA_Testing_Files/Time_Tracking_Activities.csv";
+		human_start_date = "06/22/2015";
+		infusion_start_date = "06/29/2015";
+		burn_start_date = "03/18/2015";
 		//ag_Health = "Ag_Health_Config";
 
 		
@@ -102,6 +124,15 @@ public final class TestVars {
 		}
 		public final String getPartCode(){
 			return part_code;
+		}
+		public final String getCalHumanPartCode(){
+			return cal_human_part_code;
+		}
+		public final String getCalInfusionPartCode(){
+			return cal_infusion_part_code;
+		}
+		public final String getCalBurnPartCode(){
+			return cal_burn_part_code;
 		}
 		public final String getPartDesc(){
 			return part_desc;
@@ -138,6 +169,9 @@ public final class TestVars {
 		}
 		public final String getLiadInstrumentURL(){
 			return liad_instrument_url ;
+		}
+		public final String getCalorimeterURL() {
+			return calorimeter_url;
 		}
 		public final String getNewEMAConfig(){
 			return new_ema_config;
@@ -197,5 +231,57 @@ public final class TestVars {
 		public final void set_EMA_Config_Name(String newconfigname){
 			this.ema_config=newconfigname;
 		}
-		
+		public final String get_calrq_human_data(){
+			if (System.getProperty("user.dir").equals("C:/serv/mei/MEI_UA_Testing/")) {
+				return null;
+			}
+			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
+				return tyler_human_data_file;
+			}
+			else {
+				return null;
+			}
+		}
+		public final String get_calrq_infusion_data(){
+			if (System.getProperty("user.dir").equals("C:/serv/mei/MEI_UA_Testing/")) {
+				return null;
+			}
+			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
+				return tyler_infusion_data_file;
+			}
+			else {
+				return null;
+			}
+		}
+		public final String get_calrq_burn_data(){
+			if (System.getProperty("user.dir").equals("C:/serv/mei/MEI_UA_Testing/")) {
+				return null;
+			}
+			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
+				return tyler_burn_data_file;
+			}
+			else {
+				return null;
+			}
+		}
+		public final String get_activity_file(){
+			if (System.getProperty("user.dir").equals("C:/serv/mei/MEI_UA_Testing/")) {
+				return null;
+			}
+			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
+				return tyler_activity_file;
+			}
+			else {
+				return null;
+			}
+		}
+		public final String get_human_start_date(){
+			return human_start_date;
+		}
+		public final String get_infusion_start_date(){
+			return infusion_start_date;
+		}
+		public final String get_burn_start_date(){
+			return burn_start_date;
+		}
 }

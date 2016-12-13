@@ -1,5 +1,7 @@
 package test_cases;
 
+import java.lang.management.ManagementFactory;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterTest;
@@ -16,19 +18,16 @@ public class TestNewUserRegistration extends AbstractTestCase {
     Pilr_Navbar navbar;
     Pilr_RegisterPage objRegPage;
     Pilr_ForgotPwd pwdResetPage;
-
  
-    @Test(priority=0)
-     
+    // New User Registration
+    @Test
     public void test_New_User_Registration(){
     	
     	//Create Login Page object
     	objLogin = new PilrLogin(driver);
-    	
     
     	//Verify login page title
-    	String loginPageTitle = objLogin.getPageSource();
-    	Assert.assertTrue(loginPageTitle.toLowerCase().contains("sign in"));
+    	Assert.assertTrue(objLogin.getPageSource().toLowerCase().contains("sign in"));
     	System.out.println("[Test Case]Login Page Verified");
  
     	// select Register option
@@ -41,12 +40,13 @@ public class TestNewUserRegistration extends AbstractTestCase {
     	System.out.println("[Test Case]Registration Page Verified");
     	
     	//complete registration form
-    	objRegPage.registerNewuser("eaglemanjjs@hotmail.com", "bikerjjs1", "John", 
-    			"Shade", "MEI Ltd", "$Testtest1", "$Testtest1");
+    	String newUsername = "AutoTest" + ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
+    	objRegPage.registerNewuser("eaglemanjjs@hotmail.com", newUsername, "Auto", 
+    			"Test", "MEI Ltd", "$Testtest1", "$Testtest1");
     	
-    	//Assert.assertTrue(objRegPage.getRegisterSubmit().toLowerCase().contains(
-    	//		"you are registered! go ahead and login"));
+    	Assert.assertTrue(objRegPage.getRegisterSubmit().toLowerCase().contains(
+    			"you are registered! go ahead and login"));
+    	System.out.println("[Test Case]Registration Success Verified");
     
     }
-   
 }

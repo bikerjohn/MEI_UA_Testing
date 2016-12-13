@@ -360,7 +360,7 @@ public class AbstractTestCase {
     	objHomePage.selectProject(objtestvars.getNewProject());
     }	
     @Test 
-    public void test_Select_Instrument() {
+    public void test_Select_EMA_Instrument() {
     	objEMAAppPage = new Pilr_EMA_App_Home(driver);
     	objCoordinatePage = new Pilr_CoordinatePage(driver);
     	System.out.println(objCoordinatePage.getcoordinatePageWelcome()
@@ -371,7 +371,7 @@ public class AbstractTestCase {
     	System.out.println("[Test Case]Coordinate Page Verified");
     	  	
     	//select the Instrument link 
-    	objCoordinatePage.selectInstrument();
+    	objCoordinatePage.selectEMAInstrument();
     	System.out.println("[Test Case]Select Instrument");
     	
         // verify that the correct project Coordinate Page is displayed

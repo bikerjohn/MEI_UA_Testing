@@ -1,0 +1,17 @@
+<suite name="pilr_Login_And_Registration" verbose="2" >
+<!--<listeners>
+         <listener class-name="page_objects.TestNGCustomReportListener" />
+    </listeners>-->
+	<test name="Login_And_Registration" >
+		<classes> 
+			<class name="test_cases.TestPilrLogin" />
+			<methods>
+				<include name="setup" />
+				<include name="test_Home_Page_Appears_Correctly" />
+				<include name="test_Failed_Login" />
+				<include name="test_Register_Select" />
+				<include name="test_ResetPwd_Select" />
+			</methods>
+		</classes>
+	</test>
+</suite>

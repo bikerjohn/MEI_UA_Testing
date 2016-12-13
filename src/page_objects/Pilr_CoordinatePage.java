@@ -8,13 +8,14 @@ public class Pilr_CoordinatePage {
 	   private String part_code = "992";
 	   By coordinatePageWelcome = By.cssSelector("i.icon-double-angle-right");
 	   By AddParticipant = By.id("addParticipant");
-	   By ProjectInstrument = By.cssSelector("span.bigger-110");
+	   By EMAInstrument = By.xpath("//a[@id='navInstrumentsPiLREMAApp']/div/span");
 	   By ViewGroups = By.id("navManagementGroupCategories");
 	   By ParticipantDetail = By.id("show" + part_code);
 	   By ProjectSettings = By.cssSelector("i[class='icon-cogs']");
 	   By BrowseData = By.cssSelector("a[id='navDataBrowse']");
 	   By BulkAddParticipant = By.cssSelector("a[id='bulkAddParticipant']");
 	   By BulkEditParticipant = By.cssSelector("a[id='bulkEditParticipants']");
+	   By deleteData = By.linkText("Delete Data");
 	  // By InstrumentEMA = By.cssSelector("a[id='navInstrumentsPiLREMAApp']");
 	   
 	   
@@ -29,9 +30,9 @@ public class Pilr_CoordinatePage {
 	    }
 	      
 	    //Select the instrument text link
-	    public Pilr_EMA_App_Home selectInstrument() {
-	    	  driver.findElement(ProjectInstrument).click();
-	    	  System.out.println("[Page Object]Select Instrument");
+	    public Pilr_EMA_App_Home selectEMAInstrument() {
+	    	  driver.findElement(EMAInstrument).click();
+	    	  System.out.println("[Page Object]Select EMA Instrument");
 	    	  return new Pilr_EMA_App_Home(driver);
 	    }	 
 	    
@@ -80,5 +81,10 @@ public class Pilr_CoordinatePage {
 	  public Bulk_Edit_Participants_Page select_Bulk_Edit_Participants(){
 		  driver.findElement(BulkEditParticipant).click();
 		  return new Bulk_Edit_Participants_Page(driver);
+	  }
+	  
+	  public Delete_Data_Page select_Delete_Data(){
+		  driver.findElement(deleteData).click();
+		  return new Delete_Data_Page(driver);
 	  }
 }
