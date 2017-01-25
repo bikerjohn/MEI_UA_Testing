@@ -1,40 +1,37 @@
 package test_cases;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.management.ManagementFactory;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.apache.log4j.Logger;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import page_objects.Delete_Project_Modal;
-import page_objects.Export_EMA_Defs_Modal;
-import page_objects.PilrHomePage;
 import page_objects.Admin_Home_Page;
-import page_objects.Project_Details_Admin;
+import page_objects.Delete_Project_Modal;
+import page_objects.Import_EMA_Defs_Modal;
+import page_objects.PilrHomePage;
 import page_objects.PilrLogin;
 import page_objects.Pilr_Builder_Page;
 import page_objects.Pilr_Config_Builder;
+import page_objects.Pilr_CoordinatePage;
+import page_objects.Pilr_EMA_App_Home;
 import page_objects.Pilr_Navbar;
 import page_objects.Pilr_Org_Page;
-import page_objects.Pilr_ParticipantPage;
 import page_objects.Pilr_Project_Design;
 import page_objects.Pilr_Project_Settings_Page;
 import page_objects.Pilr_Project_Wizard;
 import page_objects.Pilr_Survey_ResponsePage;
-import page_objects.Pilr_CoordinatePage;
-import page_objects.Pilr_EMA_App_Home;
-import page_objects.Pilr_GroupPage;
-import page_objects.Import_EMA_Defs_Modal;
-//import org.apache.log4j.Logger;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import java.net.URL;
+import page_objects.Project_Details_Admin;
 
 public class AbstractTestCase {
 
@@ -65,11 +62,56 @@ public class AbstractTestCase {
 		super();
 	}
 	
+	@BeforeSuite
+	public void loadProperties () { 
+		// Read mei.properties from classpath
+		InputStream in = ClassLoader.getSystemResourceAsStream("mei.properties");
+		if (in ==  null) {
+			throw new RuntimeException("can't load mei.properites");
+		}
+		try {
+			System.getProperties().load(in);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.exit(1);
+		}
+	}
+
 	//THIS 
 	@Test(priority=0)
 	public void setup() throws Exception {
 		System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
+		setEnvironment();
+		
+		driver = new ChromeDriver();
+	    //driver = new FirefoxDriver();
+	    //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	    //driver.manage().window().maximize();
+	    //driver.get("https://staging.pilrhealth.com/");
+	    //driver.get("https://qa.pilrhealth.com/");
+	    //objtestvars = new TestVars();
+	    //final Logger log = Logger.getLogger(AbstractTestCase.class);
+		
+        String baseUrl = "https://qa.pilrhealth.com/";
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.get(baseUrl);
+        System.out.println("Title : " + driver.getTitle());
+      
+	}
+	
+	private void setEnvironment() {
+		objtestvars = new TestVars();
+		objtestvars.set_EMA_Config_Defs(System.getProperty("ema.config.json"));
+		
+		//System.out.println(objtestvars.get_import_File_Name());
+		System.out.println(objtestvars.get_EMA_Config_Defs());
+		System.out.println("Matt's System");		
+	}
+
+	private void setEnvironment_OLD() {
 		String matt = "/Users/matt/Documents/workspace/Copy of Selenium_WebDriver_Testing";
 		String john = "C:/serv/mei/MEI_UA_Testing/";
 		String tyler = "/home/tyler/Github/MEI_UA_Testing";
@@ -89,7 +131,6 @@ public class AbstractTestCase {
 			//System.out.println(objtestvars.get_import_File_Name());
 			System.out.println(objtestvars.get_EMA_Config_Defs());
 			System.out.println("Matt's System");
-
 		}
 		else if((System.getProperty("user.dir")).equals(john)){
 			
@@ -115,21 +156,6 @@ public class AbstractTestCase {
 			System.out.println("Tyler's System");
 
 		}
-		driver = new ChromeDriver();
-	    //driver = new FirefoxDriver();
-	    //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	    //driver.manage().window().maximize();
-	    //driver.get("https://staging.pilrhealth.com/");
-	    //driver.get("https://qa.pilrhealth.com/");
-	    //objtestvars = new TestVars();
-	    //final Logger log = Logger.getLogger(AbstractTestCase.class);
-		
-        String baseUrl = "https://qa.pilrhealth.com/";
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get(baseUrl);
-        System.out.println("Title : " + driver.getTitle());
-      
 	}
 	@Test(priority=0)
 	public void setup1() throws Exception {
@@ -146,49 +172,7 @@ public class AbstractTestCase {
         driver = new RemoteWebDriver(
         new URL("http://localhost:4444/wd/hub"), 
         capabilities);
-		
-		//Check if it's Matt's system via string comparison
-		if((System.getProperty("user.dir")).equals(matt)){
-			
-			//Matt
-			System.setProperty("webdriver.chrome.driver", "/home/vagrant/chromedriver");
-			
-			//Set path related variables
-			objtestvars = new TestVars();
-			//objtestvars.set_import_File_Name("/Users/matt/Desktop/MEI/bulk_participants.csv");
-			objtestvars.set_EMA_Config_Defs("/Users/matt/Desktop/MEI/ema-configs-standard-surveys-wtriggers.json");
-			
-			//System.out.println(objtestvars.get_import_File_Name());
-			System.out.println(objtestvars.get_EMA_Config_Defs());
-			System.out.println("Matt's System");
-
-		}
-		else if((System.getProperty("user.dir")).equals(john)){
-			
-			//John
-			//System.setProperty("webdriver.chrome.driver", "C:/Users/eagle/Program Files/chromedriver_win32/chromedriver.exe");
-			System.setProperty("webdriver.chrome.driver", "/home/vagrant/chromedriver");
-			
-			//Set path related variables
-			objtestvars = new TestVars();
-			//objtestvars.set_import_File_Name("C:\\srv\\mei\\bulk_participants.csv");
-			objtestvars.set_EMA_Config_Defs("C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json");
-			System.out.println("John's System");
-			
-		}
-		else if((System.getProperty("user.dir")).equals(tyler)){
-			
-			//Tyler
-			System.setProperty("webdriver.chrome.driver", "/home/tyler/UA_Testing_Files/chromedriver");
-			
-			//Set path related variables
-			objtestvars = new TestVars();
-			//objtestvars.set_import_File_Name("/Users/matt/Desktop/MEI/bulk_participants.csv");
-			objtestvars.set_EMA_Config_Defs("/home/tyler/UA_Testing_Files/ema-configs-standard-surveys-wtriggers.json");
-			System.out.println("Tyler's System");
-
-		}
-		
+				
         String baseUrl = "https://qa.pilrhealth.com/";
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -396,7 +380,9 @@ public class AbstractTestCase {
     	objSurvResponsePage = new Pilr_Survey_ResponsePage(driver);
     	
     	//Verify location
-    	Assert.assertTrue(objEMAAppPage.getEMAAppPageWelcome()
+    	String result = objEMAAppPage.getEMAAppPageWelcome();
+    	
+		Assert.assertTrue(result
     			.toLowerCase().contains(
     			"participant summaries"));
     }

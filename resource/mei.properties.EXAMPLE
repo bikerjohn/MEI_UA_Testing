@@ -1,0 +1,2 @@
+webdriver.chrome.driver = /Users/mgm/Downloads/chromedriver
+ema.config.json = /Users/mgm/Downloads/ema-configs-standard-surveys-wtriggers.json

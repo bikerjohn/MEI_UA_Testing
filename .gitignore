@@ -221,3 +221,4 @@ test-output/
 bin/
 .settings
 .project
+resource/mei.properties
