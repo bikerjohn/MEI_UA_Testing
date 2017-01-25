@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Pilr_Survey_ResponsePage {
 	WebDriver driver;
-	By surveyResponsePageWelcome = By.cssSelector("a[href='#compliance']");
+	By surveyResponsePageWelcome = By.cssSelector("a[href='#surveySearch']");
 	
 	public Pilr_Survey_ResponsePage(WebDriver driver){		 
 	       this.driver = driver;

@@ -40,7 +40,7 @@
 				<include name="setup" />
 				<include name="test_Login" />
 				<include name="test_Select_New_Project_Name"/>
-				<include name="test_Select_Instrument" />
+				<include name="test_Select_EMA_Instrument" />
 				<include name="test_Select_EMA_App_Page" />
 				<include name="test_Select_EMA_Builder_Page" />
 				<include name="test_Select_New_EMA_Config" />

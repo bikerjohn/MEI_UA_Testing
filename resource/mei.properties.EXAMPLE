@@ -1,2 +1,6 @@
 webdriver.chrome.driver = /Users/mgm/Downloads/chromedriver
 ema.config.json = /Users/mgm/Downloads/ema-configs-standard-surveys-wtriggers.json
+ema.activity = /home/tyler/UA_Testing_Files/Time_Tracking_Activities.csv
+calrq.human_data_file = /home/tyler/UA_Testing_Files/calrq-human-data.csv
+calrq.infusion_data_file = /home/tyler/UA_Testing_Files/calrq-infusion-data.csv
+calrq.burn_data_file = /home/tyler/UA_Testing_Files/calrq-burn-data.csv

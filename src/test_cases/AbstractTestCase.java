@@ -105,6 +105,10 @@ public class AbstractTestCase {
 	private void setEnvironment() {
 		objtestvars = new TestVars();
 		objtestvars.set_EMA_Config_Defs(System.getProperty("ema.config.json"));
+		objtestvars.set_Activity_File(System.getProperty("ema.activity"));
+		objtestvars.set_calrq_burn_data(System.getProperty("calrq.burn_data_file"));
+		objtestvars.set_calrq_infusion_data(System.getProperty("calrq.infusion_data_file"));
+		objtestvars.set_calrq_human_data(System.getProperty("calrq.human_data_file"));
 		
 		//System.out.println(objtestvars.get_import_File_Name());
 		System.out.println(objtestvars.get_EMA_Config_Defs());

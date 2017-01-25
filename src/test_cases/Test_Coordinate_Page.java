@@ -240,7 +240,7 @@ public class Test_Coordinate_Page extends AbstractTestCase {
     	objQueryDataPage = new Query_Project_Data(driver);
     	// Wait 120 seconds for file to upload/process
     	try {
-			Thread.sleep(180000);
+			Thread.sleep(300000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

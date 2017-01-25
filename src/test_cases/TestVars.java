@@ -35,13 +35,12 @@ public final class TestVars {
 	 private String default_assignments;
 	 private Integer proj_wizard_import_component_li;
 	 private Integer proj_wizard_import_bundle_li;
-	 public String john_ema_config_defs;
-	 public String tyler_ema_config_defs;
+	 public String ema_config_defs;
 	 public String liad_instrument_url;
-	 public String tyler_human_data_file;
-	 public String tyler_infusion_data_file;
-	 public String tyler_burn_data_file;
-	 public String tyler_activity_file;
+	 public String human_data_file;
+	 public String infusion_data_file;
+	 public String burn_data_file;
+	 public String activity_file;
 	 public String human_start_date;
 	 public String infusion_start_date;
 	 public String burn_start_date;
@@ -86,12 +85,11 @@ public final class TestVars {
 		default_assignments = "Default Assignments";
 		proj_wizard_import_component_li = 1;
 		proj_wizard_import_bundle_li = 0;
-		john_ema_config_defs = "C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json";
-		tyler_ema_config_defs = "/home/tyler/Github/definition-files/premium/PiLR EMA/sample-ema-config-content-v2.json";
-		tyler_human_data_file = "/home/tyler/UA_Testing_Files/calrq-human-data.csv";
-		tyler_infusion_data_file = "/home/tyler/UA_Testing_Files/calrq-infusion-data.csv";
-		tyler_burn_data_file = "/home/tyler/UA_Testing_Files/calrq-burn-data.csv";
-		tyler_activity_file = "/home/tyler/UA_Testing_Files/Time_Tracking_Activities.csv";
+		ema_config_defs = "C:\\srv\\mei\\emacontent\\ema-configs-standard-surveys-wtriggers.json";
+		human_data_file = "/home/tyler/UA_Testing_Files/calrq-human-data.csv";
+		infusion_data_file = "/home/tyler/UA_Testing_Files/calrq-infusion-data.csv";
+		burn_data_file = "/home/tyler/UA_Testing_Files/calrq-burn-data.csv";
+		activity_file = "/home/tyler/UA_Testing_Files/Time_Tracking_Activities.csv";
 		human_start_date = "06/22/2015";
 		infusion_start_date = "06/29/2015";
 		burn_start_date = "03/18/2015";
@@ -209,70 +207,37 @@ public final class TestVars {
 			return proj_wizard_import_bundle_li;
 		}
 		public final void set_EMA_Config_Defs(String newconfigdefs){
-			if (System.getProperty("user.dir").equals("C:/serv/mei/MEI_UA_Testing/")) {
-				this.john_ema_config_defs=newconfigdefs;
-			}
-			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
-				this.tyler_ema_config_defs=newconfigdefs;	
-			}
+			this.ema_config_defs=newconfigdefs;
 		}
 		public final String get_EMA_Config_Defs(){
-			if (System.getProperty("user.dir").equals("C:/serv/mei/MEI_UA_Testing/")) {
-				return john_ema_config_defs;
-			}
-			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
-				return tyler_ema_config_defs;
-			}
-			else {
-				return null;
-			}
+			return ema_config_defs;
 		}
 		public final void set_EMA_Config_Name(String newconfigname){
 			this.ema_config=newconfigname;
 		}
+		public final void set_calrq_human_data(String newfile){
+			this.human_data_file = newfile;
+		}
 		public final String get_calrq_human_data(){
-			if (System.getProperty("user.dir").equals("C:/serv/mei/MEI_UA_Testing/")) {
-				return null;
-			}
-			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
-				return tyler_human_data_file;
-			}
-			else {
-				return null;
-			}
+			return human_data_file;
+		}
+		public final void set_calrq_infusion_data(String newfile){
+			this.infusion_data_file = newfile;
 		}
 		public final String get_calrq_infusion_data(){
-			if (System.getProperty("user.dir").equals("C:/serv/mei/MEI_UA_Testing/")) {
-				return null;
-			}
-			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
-				return tyler_infusion_data_file;
-			}
-			else {
-				return null;
-			}
+			return infusion_data_file;
+		}
+		public final void set_calrq_burn_data(String newfile){
+			this.burn_data_file = newfile;
 		}
 		public final String get_calrq_burn_data(){
-			if (System.getProperty("user.dir").equals("C:/serv/mei/MEI_UA_Testing/")) {
-				return null;
-			}
-			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
-				return tyler_burn_data_file;
-			}
-			else {
-				return null;
-			}
+			return burn_data_file;
+		}
+		public final void set_Activity_File(String newfile){
+			this.activity_file=newfile;
 		}
 		public final String get_activity_file(){
-			if (System.getProperty("user.dir").equals("C:/serv/mei/MEI_UA_Testing/")) {
-				return null;
-			}
-			else if (System.getProperty("user.dir").equals("/home/tyler/Github/MEI_UA_Testing")) {
-				return tyler_activity_file;
-			}
-			else {
-				return null;
-			}
+			return activity_file;
 		}
 		public final String get_human_start_date(){
 			return human_start_date;
