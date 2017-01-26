@@ -93,8 +93,8 @@ public final class TestVars {
 		human_start_date = "06/22/2015";
 		infusion_start_date = "06/29/2015";
 		burn_start_date = "03/18/2015";
-		//ag_Health = "Ag_Health_Config";
-		
+		//ag_Health = "Ag_Health_Config";		
+
 	    }
 	
 	// Public methods
