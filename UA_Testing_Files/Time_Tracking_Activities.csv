@@ -1,0 +1,19 @@
+Activity,ID,Category,Label
+Time Card,1,Administration,Time Card
+Status Report,2,Administration,Status Report
+Team Meeting,3,Administration,Team Meeting
+Company Meeting,4,Administration,Company Meeting
+Walk to Meeting,5,Transit,Walk to Meeting
+Retrieve Work,6,Transit,Retrieve Work
+Deliver Work,7,Transit,Deliver Work
+Break,8,Rest,Break
+Lunch,9,Rest,Lunch
+Pay Claim,10,Work,Pay Claim
+Reject Claim,11,Work,Reject Claim
+Adjust Claim,12,Work,Adjust Claim
+Take Customer Call,13,Work,In-bound Call
+Follow-up Call,14,Work,Out-bound Call
+Document Call,15,Work,ACW
+Send Email,16,Work,Send Email
+Send Letter,17,Work,Send Letter
+Read Email,18,Work,Read Email
