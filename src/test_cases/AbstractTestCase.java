@@ -530,8 +530,8 @@ public class AbstractTestCase {
     	objOrgPage.createProject();
     	
     	//verify that we landed on the Project Wizard Page
-    	Assert.assertTrue((objProjWizard.getProjWizardPageWelcome().toLowerCase()
-    			.contains("new project wizard")));
+    	String welcome = objProjWizard.getProjWizardPageWelcome();
+		Assert.assertTrue((welcome.toLowerCase().contains("new project wizard")));
     }
     @Test
     //navigate to the Project Design Page

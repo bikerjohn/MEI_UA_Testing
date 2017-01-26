@@ -4,3 +4,4 @@ ema.activity = /home/tyler/UA_Testing_Files/Time_Tracking_Activities.csv
 calrq.human_data_file = /home/tyler/UA_Testing_Files/calrq-human-data.csv
 calrq.infusion_data_file = /home/tyler/UA_Testing_Files/calrq-infusion-data.csv
 calrq.burn_data_file = /home/tyler/UA_Testing_Files/calrq-burn-data.csv
+bulk_participants.file = /Users/mgm/Projects/MEI_UA_Testing/UA_Testing_Files/bulk_participants.csv

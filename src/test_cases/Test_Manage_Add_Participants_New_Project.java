@@ -54,20 +54,8 @@ public class Test_Manage_Add_Participants_New_Project extends AbstractTestCase {
 		objBulkAddParticipant = new Bulk_Add_Participants_Page(driver);
 		objtestvars = new TestVars();
 		
-		String matt = "/Users/matt/Documents/workspace/Copy of Selenium_WebDriver_Testing";
-		String john = "C:/serv/mei/MEI_UA_Testing/";
-		String tyler = "/home/tyler/Github/MEI_UA_Testing";
-		
-		//Check if it's Matt's system via string comparison
-		if((System.getProperty("user.dir")).equals(matt)){
-			objtestvars.set_import_File_Name("/Users/matt/Desktop/MEI/bulk_participants.csv");
-		}
-		else if((System.getProperty("user.dir")).equals(john)){
-			objtestvars.set_import_File_Name("C:\\srv\\mei\\bulk_participants.csv");
-		}else if((System.getProperty("user.dir")).equals(tyler)){
-			objtestvars.set_import_File_Name("/home/tyler/UA_Testing_Files/bulk_participants.csv");
-		}
-		
+		objtestvars.set_import_File_Name(System.getProperty("bulk_participants.file"));
+
 		objBulkAddParticipant.bulk_add_Participants(objtestvars.get_import_File_Name());
 		objBulkAddParticipant.getImportFileMessage();
 	}
