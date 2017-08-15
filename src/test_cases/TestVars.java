@@ -6,7 +6,7 @@ public final class TestVars {
 	 private String usrname;
 	 private String passwrd;
 	 private String prjct;
-	 private String org;
+	 public String org;
 	 private String liad_org;
 	 private String part_code;
 	 private String part_desc;

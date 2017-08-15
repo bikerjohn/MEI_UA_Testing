@@ -94,7 +94,7 @@ public class AbstractTestCase {
 	    //objtestvars = new TestVars();
 	    //final Logger log = Logger.getLogger(AbstractTestCase.class);
 		
-        String baseUrl = "https://qa.pilrhealth.com/";
+        String baseUrl = System.getProperty("pilr.base_url");
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(baseUrl);
@@ -109,10 +109,9 @@ public class AbstractTestCase {
 		objtestvars.set_calrq_burn_data(System.getProperty("calrq.burn_data_file"));
 		objtestvars.set_calrq_infusion_data(System.getProperty("calrq.infusion_data_file"));
 		objtestvars.set_calrq_human_data(System.getProperty("calrq.human_data_file"));
-		
-		//System.out.println(objtestvars.get_import_File_Name());
-		System.out.println(objtestvars.get_EMA_Config_Defs());
-		System.out.println("Matt's System");		
+		objtestvars.setUserName(System.getProperty("pilr.user.name"));
+		objtestvars.setPassWrd(System.getProperty("pilr.user.password"));
+		objtestvars.org = System.getProperty("pilr.org");
 	}
 
 	private void setEnvironment_OLD() {
@@ -207,8 +206,8 @@ public class AbstractTestCase {
  
     	System.out.println(objHomePage.getHomePageWelcome().toLowerCase());
     	//Verify home page
-    	Assert.assertTrue(objHomePage.getHomePageWelcome().toLowerCase().contains(
-    			"bikerjohn"));
+		Assert.assertTrue(objHomePage.getHomePageWelcome().contains(
+				objtestvars.getUserName()));
     	
     	System.out.println("[Test Case]Home Page Verified");
     	//System.out.println(a);
