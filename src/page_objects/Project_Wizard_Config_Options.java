@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class Project_Wizard_Config_Options {
 	WebDriver driver; 
-	By configOptionsWelcome = By.cssSelector("h3[class='lighter block green']");
+	By configOptionsWelcome = By.cssSelector(".widget-main h3");
 	By buildFromScratch = By.cssSelector("input[id='nextStep_doItYourself']");
 	By nextButton = By.cssSelector("button[id='next']");
 	By importFromOrgButton = By.cssSelector("input[id='nextStep_organization']");
