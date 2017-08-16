@@ -1,12 +1,8 @@
 package page_objects;
-import java.lang.management.ManagementFactory;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.JavascriptExecutor;
-
-import test_cases.TestVars;
 
 public class PilrHomePage {
 	WebDriver driver;
@@ -14,7 +10,6 @@ public class PilrHomePage {
 		private String project = "DualCohortStudy (OWNER)";
 		private String organization = "test_org";
 		By homePageWelcome = By.cssSelector("i.icon-double-angle-right");
-		By PilrProject = By.cssSelector("a[title='"+project+"']");
 		By PilrTable = By.cssSelector("table[class^='table table-responsive']");
 		By PilrOrgExp = By.cssSelector("i[class='icon-chevron-right'] + *");
 		By PilrChooseProj = By.cssSelector("a[title='Choose a Project']");
@@ -36,12 +31,9 @@ public class PilrHomePage {
 	      //Select a project to work on
 	      public Pilr_CoordinatePage selectProject(String prjct) {
 	    	  this.project = prjct;
-		      this.PilrProject = By.partialLinkText(project);
 		      System.out.println("[Page Object]Select Project");
-		    //  WebElement element = driver.findElement(PilrProject);
-	    	//  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 	    	  driver.findElement(PilrChooseProj).click();
-	    	  driver.findElement(PilrProject).click();
+	    	  driver.findElement(By.partialLinkText(project)).click();
 	    	  return new Pilr_CoordinatePage(driver);
 	      }
 	      //Select an organization to work on

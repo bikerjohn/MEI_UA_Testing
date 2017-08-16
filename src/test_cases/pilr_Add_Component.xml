@@ -1,9 +1,9 @@
-<suite name="pilr_Add_New_Project_Component" verbose="2" >
+<suite name="pilr_Add_Component" verbose="2" >
 <!--<listeners>
          <listener class-name="page_objects.TestNGCustomReportListener" />
     </listeners>-->
-	<test name="Test_Add_Component_Raw" >
-		<classes> 
+	<test name="pilr_Add_Component" >
+		<classes>
 			<class name="test_cases.Test_New_Project_Wizard" />
 				<methods>
 					<include name="setup" />

@@ -4,11 +4,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import test_cases.TestVars;
+
 public class Pilr_Builder_Page {
 	WebDriver driver;
 	String csv_LocationMatt = "/Users/matt/Downloads/liad_test1.csv";
 	String emaconfig = "Test Config";
-	String project = "test_project";
+	String project = TestVars.getInstance().getProject();
 	By ebuilderPageWelcome = By.cssSelector("div[class='widget-box transparent']");
 	By emaconfigBuilder = By.partialLinkText(emaconfig);
 	By pickEMAConfig = By.cssSelector("a[href*='" + project + "']");

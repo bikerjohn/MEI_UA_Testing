@@ -1,0 +1,39 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Master-Suite" verbose="2" >
+    <!--<listeners>
+         <listener class-name="page_objects.TestNGCustomReportListener" />
+    </listeners>-->
+    <suite-files>
+        <!--  This must be first -->
+ 	    <suite-file path="pilr_Create_Project_from_Scratch.xml" /> 
+ 	    
+    	<!-- <suite-file path="pilr_Add_Component.xml" /> -->
+        <suite-file path="pilr_Add_Manage_New_Participants.xml" />
+    	<suite-file path="pilr_Add_New_Participant.xml" />
+    	<suite-file path="pilr_Calorimeter_Summaries_And_Delete_Data.xml" />
+    	<suite-file path="pilr_Create_New_Survey_Existing_Project.xml" />
+    	<suite-file path="pilr_Create_New_Survey_from_Scratch.xml" />
+    	<suite-file path="pilr_Create_Project_Import_Instrument.xml" />
+    	<suite-file path="pilr_Create_Project_With_Feature_Enabled.xml" />
+    	<suite-file path="pilr_Create_Project_from_Bundle.xml" />
+    	<suite-file path="pilr_Create_Project_from_Scratch_Liad_Activities.xml" />
+    	<suite-file path="pilr_Create_Template_Settings_NewProject.xml" />
+    	<suite-file path="pilr_EMA_Verify_Home_and_Compliance.xml" />
+    	<suite-file path="pilr_Import_Instrument_EMA_Liad.xml" />
+    	<suite-file path="pilr_Login_And_Registration.xml" />
+    	<suite-file path="pilr_Verify_Coordinate_Page.xml" />
+    	<suite-file path="pilr_Verify_Data_Viewer_Through_Browsedata.xml" />
+    	<suite-file path="pilr_test_export_button.xml" />
+    	<suite-file path="pilr_test_home_page.xml" />
+    	<suite-file path="pilr_test_navigation_suite.xml" />
+    	<suite-file path="test_VP2_api_Features.xml" />
+
+    	<suite-file path="pilr_Add_EMA_Config_Liad.xml" />
+
+    	<suite-file path="Ag_Health_Add_Content.xml" />
+    	<suite-file path="Ag_Health_Add_Content_Parallel_Test.xml" />
+    	<suite-file path="Ag_Health_Configs.xml" />
+    	
+    	<!-- <suite-file path="group_test.xml" /> -->
+    </suite-files>
+</suite>

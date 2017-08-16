@@ -2,9 +2,11 @@ package page_objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import test_cases.TestVars;
+
 public class Pilr_Project_Wizard {
 	WebDriver driver;
-	private String projName="test_project";
+	private String projName= TestVars.getInstance().getProject();
 	By projectWizardWelcome = By.cssSelector("h4");
 	By projectName = By.cssSelector("input[id*='name']");
 	By projSubmit = By.cssSelector("button[id*='next']");
