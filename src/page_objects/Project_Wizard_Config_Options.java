@@ -8,9 +8,10 @@ public class Project_Wizard_Config_Options {
 	WebDriver driver; 
 	By configOptionsWelcome = By.cssSelector(".widget-main h3");
 	By buildFromScratch = By.cssSelector("input[id='nextStep_doItYourself']");
-	By nextButton = By.cssSelector("button[id='next']");
+	By nextButton = By.cssSelector("button#next");
 	By importFromOrgButton = By.cssSelector("input[id='nextStep_organization']");
 	By selectDropDown2 = By.cssSelector("span[class='select2-chosen']");
+	By selectOrg = By.cssSelector("#s2id_importOrgDef .select2-chosen");
 	By fillDropDown2 = By.cssSelector("input[class='select2-input']");
 	By liEmaConfig = By.cssSelector("li[class='select2-results-dept-0 select2-result select2-result-selectable']");
 	private Integer li_Position = 4;
@@ -43,7 +44,7 @@ public class Project_Wizard_Config_Options {
 	//select the copy from organization option send the li position as part of call
 	public void import_Component_From_Organization(Integer liPosition){
 		this.li_Position=liPosition;
-		driver.findElements(selectDropDown2).get(1).click();
+		driver.findElement(selectOrg).click();
 		driver.findElements(liEmaConfig).get(li_Position).click();
 		driver.findElement(nextButton).click();
 	}

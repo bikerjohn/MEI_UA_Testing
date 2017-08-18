@@ -1,8 +1,5 @@
 package test_cases;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.management.ManagementFactory;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -14,6 +11,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import page_objects.Admin_Home_Page;
@@ -34,6 +32,8 @@ import page_objects.Pilr_Survey_ResponsePage;
 import page_objects.Project_Details_Admin;
 
 public class AbstractTestCase {
+	
+	private static String newProjName;
 
 	WebDriver driver;
 	PilrLogin objLogin;
@@ -52,7 +52,7 @@ public class AbstractTestCase {
 	Pilr_Project_Settings_Page objProjectSettings;
 	Pilr_Project_Design objProjectDesign;
 	Delete_Project_Modal objDeleteProjectModal;
-	String new_project_name = "test" + ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
+	String new_project_name = newProjName;
 	String pilr_org;
 	// String ag_Health;
 
@@ -61,7 +61,20 @@ public class AbstractTestCase {
 	public AbstractTestCase() {
 		super();
 	}
-
+	
+	@BeforeSuite
+	public void makeFreshNewProjectName(){
+		newProjName = "test"+Long.toHexString(System.currentTimeMillis());
+		this.new_project_name = newProjName; 
+		System.out.println("****suite: new_project_name=" + this.new_project_name);
+	}
+	
+	@BeforeTest
+	void setNewProjName() {
+		this.new_project_name = newProjName;
+		System.out.println("****beforetest new_project_name=" + this.new_project_name + ", static=" + newProjName);
+	}
+	
 //	@BeforeSuite
 //	public void loadProperties() {
 //		// Read mei.properties from classpath
@@ -668,6 +681,11 @@ public class AbstractTestCase {
 	@AfterTest
 	public void tearDown() throws Exception {
 		driver.quit();
+	}
+	
+	protected String createProjName(){
+		//String new_project_name = "test" + Long.toHexString(System.currentTimeMillis()); 
+		return new_project_name;
 	}
 
 }

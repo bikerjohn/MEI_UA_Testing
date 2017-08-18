@@ -1,12 +1,6 @@
 package page_objects;
-import java.lang.management.ManagementFactory;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.JavascriptExecutor;
-
-import test_cases.TestVars;
 
 public class Admin_Home_Page {
 	WebDriver driver;
