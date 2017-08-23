@@ -20,15 +20,12 @@ public class Test_New_Project_Wizard extends AbstractTestCase {
 	Project_Import_Modal objImportInstrumentModal;
 	Pilr_CoordinatePage objCoordinatePage;
 	
-	@BeforeTest
-	public void before() {
-		makeFreshNewProjectName();
-	}
-	
 	@Test
     public void test_Name_New_Project(){
     	objProjectWizard = new Pilr_Project_Wizard(driver);
-    	
+
+		makeFreshNewProjectName();
+
     	//verify that we landed on survey response page
     	Assert.assertTrue(objProjectWizard.getProjWizardPageWelcome().toLowerCase()
     			.contains("new project wizard"));

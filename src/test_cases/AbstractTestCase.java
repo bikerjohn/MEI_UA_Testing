@@ -10,7 +10,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -33,7 +32,7 @@ import page_objects.Project_Details_Admin;
 
 public class AbstractTestCase {
 	
-	private static String newProjName;
+	private static String newProjName = createUniqueProjectName();
 
 	WebDriver driver;
 	PilrLogin objLogin;
@@ -62,11 +61,14 @@ public class AbstractTestCase {
 		super();
 	}
 	
-	@BeforeSuite
-	public void makeFreshNewProjectName(){
-		newProjName = "test"+Long.toHexString(System.currentTimeMillis());
+ 	public void makeFreshNewProjectName(){
+		AbstractTestCase.newProjName = createUniqueProjectName();
 		this.new_project_name = newProjName; 
 		System.out.println("****suite: new_project_name=" + this.new_project_name);
+	}
+
+	static private String createUniqueProjectName() {
+		return "test"+Long.toHexString(System.currentTimeMillis());
 	}
 	
 	@BeforeTest
@@ -190,6 +192,10 @@ public class AbstractTestCase {
 	@Test(priority = 0)
 	public void test_Login() {
 
+		// Override username and password to user ones
+		objtestvars.setUserName(System.getProperty("pilr.user.name"));
+		objtestvars.setPassWrd(System.getProperty("pilr.user.password"));
+
 		// Create Login Page object
 		objLogin = new PilrLogin(driver);
 
@@ -225,18 +231,8 @@ public class AbstractTestCase {
 		// System.out.println(loginPageTitle.toLowerCase());
 
 		// Override username and password to admin ones
-		objtestvars.setUserName("admin");
-
-		// Check that name was properly set
-		Assert.assertTrue((objtestvars.getUserName()).equals("admin"));
-		// System.out.println(objtestvars.getUserName());
-
-		// Override password
-		objtestvars.setPassWrd("password");
-
-		// Check that pass was properly set
-		Assert.assertTrue((objtestvars.getPassWrd()).equals("password"));
-		// System.out.println(objtestvars.getPassWrd());
+		objtestvars.setUserName(System.getProperty("pilr.admin.name"));
+		objtestvars.setPassWrd(System.getProperty("pilr.admin.password"));
 
 		// login to application
 		objLogin.loginToPilr(objtestvars.getUserName(), objtestvars.getPassWrd());
