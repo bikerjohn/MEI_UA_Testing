@@ -1,15 +1,13 @@
 package test_cases;
 
-import java.lang.management.ManagementFactory;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.annotations.AfterTest;
+
 import page_objects.PilrHomePage;
 import page_objects.PilrLogin;
+import page_objects.Pilr_ForgotPwd;
 import page_objects.Pilr_Navbar;
 import page_objects.Pilr_RegisterPage;
-import page_objects.Pilr_ForgotPwd;
 
 public class TestNewUserRegistration extends AbstractTestCase {
 	 
@@ -40,7 +38,7 @@ public class TestNewUserRegistration extends AbstractTestCase {
     	System.out.println("[Test Case]Registration Page Verified");
     	
     	//complete registration form
-    	String newUsername = "AutoTest" + ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
+    	String newUsername = "AutoTest" + Long.toHexString(System.currentTimeMillis());
     	objRegPage.registerNewuser("eaglemanjjs@hotmail.com", newUsername, "Auto", 
     			"Test", "MEI Ltd", "$Testtest1", "$Testtest1");
     	

@@ -1,12 +1,8 @@
 package page_objects;
-import java.lang.management.ManagementFactory;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.JavascriptExecutor;
-
-import test_cases.TestVars;
 
 public class Admin_Home_Page {
 	WebDriver driver;
@@ -22,7 +18,7 @@ public class Admin_Home_Page {
 	//By PilrChooseProj = By.cssSelector("a[title='Choose a Project']");
      
 	By HideFeedback = By.cssSelector("a[id='hide-feedback']");
-	By PilrChooseProj= By.cssSelector("a[href='#collapseFour']");
+	By projListToggle= By.cssSelector("a[href='#collapseFour']");
 	By AdminProjectChoice= By.cssSelector("a[href='/projectAdmin/show/5612d1cce4b03f1a21c2500f']");
 	By projectDropDown = By.cssSelector("a[id='chooseProject']");
 	By projectDropDownSelect = By.cssSelector("a[id='projectEMA_copy_test']");
@@ -43,8 +39,11 @@ public class Admin_Home_Page {
       public Project_Details_Admin selectProject(String prjct) {
     	  
     	  //this.project = prjct;
-    	  driver.findElement(HideFeedback).click();
-    	  driver.findElement(PilrChooseProj).click();
+//    	  driver.findElement(HideFeedback).click();
+    	  
+    	  WebElement toggle = driver.findElement(projListToggle);
+	      ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", toggle);
+    	  toggle.click();
     	  driver.findElement(By.id("term")).clear();
     	  driver.findElement(By.id("term")).sendKeys(prjct);
     	  driver.findElement(projectSearch).click();

@@ -1,13 +1,9 @@
 package test_cases;
 
-import java.lang.management.ManagementFactory;
-import java.time.LocalDateTime;
-
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import page_objects.Import_EMA_Defs_Modal;
-import page_objects.Pilr_Builder_Page;
 import page_objects.Pilr_CoordinatePage;
 import page_objects.Pilr_Project_Settings_Page;
 import page_objects.Pilr_Project_Wizard;
@@ -23,27 +19,18 @@ public class Test_New_Project_Wizard extends AbstractTestCase {
 	Pilr_Project_Settings_Page objProjectSettings;
 	Project_Import_Modal objImportInstrumentModal;
 	Pilr_CoordinatePage objCoordinatePage;
-	String new_project_name;
 	
-	//Create the name for the new project (text + date time for uniqueness)
-		public String createProjName(){
-			String new_project_name;
-			//using date/time to create a unique project name
-			new_project_name = "test"+ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
-			//get rid of special characters that are returned from the date time func
-			//new_project_name = new_project_name.replaceAll("[-+.^:;,]","");
-			return new_project_name;
-		}
-
 	@Test
     public void test_Name_New_Project(){
     	objProjectWizard = new Pilr_Project_Wizard(driver);
-    	
+
+		makeFreshNewProjectName();
+
     	//verify that we landed on survey response page
     	Assert.assertTrue(objProjectWizard.getProjWizardPageWelcome().toLowerCase()
     			.contains("new project wizard"));
     	//start the project creation process by naming it
-    	this.new_project_name = createProjName();
+//    	makeFreshNewProjectName();
     	objProjectWizard.createProject(new_project_name);
     	//update the new project name in the TestVars object
     	objtestvars.setnewProject(new_project_name);

@@ -1,6 +1,4 @@
 package test_cases;
-import java.lang.management.ManagementFactory;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,8 +11,6 @@ import page_objects.Pilr_Project_Design;
 import page_objects.Pilr_Project_Settings_Page;
 import page_objects.Time_Wait;
 
-import org.testng.annotations.AfterTest;
-
 public class Test_Project_Design_Settings extends AbstractTestCase { 
 	Pilr_Project_Settings_Page objProjectSettings;
 	Pilr_Project_Design objProjectDesign;
@@ -22,7 +18,6 @@ public class Test_Project_Design_Settings extends AbstractTestCase {
 	EMA_Config_Modal objEMAConfigModal;
 	Pilr_Default_Template_Page objDefaultTemplate;
 	Time_Wait objTimeWait;
-	String new_project_name = "test"+ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
 	
 	@Test
 	public void test_Select_New_Project_Name(){

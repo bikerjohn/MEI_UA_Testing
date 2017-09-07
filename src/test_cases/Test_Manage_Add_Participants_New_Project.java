@@ -1,7 +1,4 @@
 package test_cases;
-import java.lang.management.ManagementFactory;
-import java.time.LocalDateTime;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -23,7 +20,6 @@ public class Test_Manage_Add_Participants_New_Project extends AbstractTestCase {
 	Update_Schedule_Modal objScheduleModal;
 	TestVars objtestvars;
 	Time_Wait objTimeWait;
-	String new_project_name = "test"+ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
 	
 	@Test
 	public void test_Select_New_Project_Name(){

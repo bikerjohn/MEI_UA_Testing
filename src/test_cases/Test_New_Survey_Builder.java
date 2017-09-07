@@ -1,7 +1,5 @@
 package test_cases;
 
-import java.lang.management.ManagementFactory;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,9 +12,7 @@ import page_objects.PilrHomePage;
 import page_objects.Pilr_Builder_Page;
 import page_objects.Pilr_Config_Builder;
 import page_objects.Pilr_CoordinatePage;
-import page_objects.Pilr_EMA_App_Home;
 import page_objects.Pilr_Survey_Builder;
-import page_objects.Pilr_Survey_ResponsePage;
 import page_objects.Section_Modal;
 import page_objects.Time_Wait;
 
@@ -52,7 +48,6 @@ public class Test_New_Survey_Builder extends AbstractTestCase {
 		Card_Type_Modal objCardTypeModal;
 		Card_Modal objCardModal;
 		Time_Wait objTimeWait;
-		String new_project_name = "test"+ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
 		String emaTextLink = "test_link";
 		String sec_refid = "123";
 		Pilr_Builder_Page objBuilderPage;
