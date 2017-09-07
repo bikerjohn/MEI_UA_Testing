@@ -1,7 +1,32 @@
 webdriver.chrome.driver = /Users/mgm/Downloads/chromedriver
-ema.config.json = /Users/mgm/Downloads/ema-configs-standard-surveys-wtriggers.json
-ema.activity = /home/tyler/UA_Testing_Files/Time_Tracking_Activities.csv
-calrq.human_data_file = /home/tyler/UA_Testing_Files/calrq-human-data.csv
-calrq.infusion_data_file = /home/tyler/UA_Testing_Files/calrq-infusion-data.csv
-calrq.burn_data_file = /home/tyler/UA_Testing_Files/calrq-burn-data.csv
-bulk_participants.file = /Users/mgm/Projects/MEI_UA_Testing/UA_Testing_Files/bulk_participants.csv
+pilr.base_url = https://staging.pilrhealth.com
+
+# create the following!
+pilr.user.name=uatest_user
+pilr.user.password=uatest_userA1!
+pilr.org=uatest_org
+pilr.project=uatest_project
+
+pilr.admin.name=admin
+pilr.admin.password=NOTCORRECT
+
+# pilr.project.component.* defines the components that must be imported into to test org before running tests
+# Note that these properties are not currently used in the code; the index is, so import in this order!
+#bundles
+pilr.project.component.1.name=Sample project components and configuration for PiLR EMA
+pilr.project.component.2.name=Sample project components for PiLR EMA
+
+# dashboafrds
+pilr.project.component.3.name=PiLR EMA Cohort Actual/Expected
+pilr.project.component.4.name=PiLR EMA Cohort Heatmap
+
+# instruments
+pilr.project.component.5.name=PiLR EMA App
+pilr.project.component.5.version=3
+
+ema.config.json          = /Users/mgm/Projects/MEI_UA_Testing/UA_Testing_Files/ema-configs-standard-surveys-wtriggers.json
+ema.activity             = /Users/mgm/Projects/MEI_UA_Testing/UA_Testing_Files/Time_Tracking_Activities.csv
+calrq.human_data_file    = /Users/mgm/Projects/MEI_UA_Testing/UA_Testing_Files/calrq-human-data.csv
+calrq.infusion_data_file = /Users/mgm/Projects/MEI_UA_Testing/UA_Testing_Files/calrq-infusion-data.csv
+calrq.burn_data_file     = /Users/mgm/Projects/MEI_UA_Testing/UA_Testing_Files/calrq-burn-data.csv
+bulk_participants.file   = /Users/mgm/Projects/MEI_UA_Testing/UA_Testing_Files/bulk_participants.csv
