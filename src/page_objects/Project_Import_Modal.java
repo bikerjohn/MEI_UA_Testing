@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 public class Project_Import_Modal {
 	WebDriver driver;
 	private String urlAddress;
-	By projectImportModalWelcome = By.cssSelector("div[class='table-header']");
+	By projectImportModalWelcome = By.cssSelector("#importDefinitionModal .modal-title");
 	By importFromURL = By.cssSelector("a[title='URL']");
 	By fieldURL = By.cssSelector("input[id='importURL']");
-	By importButton = By.cssSelector("button[id='next']");
+	By importButton = By.cssSelector("#importDefinitionModal .btn-primary");
 	By projectImportModalWelcome2 = By.cssSelector("div[id='marketplace']");
 	
 	public Project_Import_Modal(WebDriver driver){
