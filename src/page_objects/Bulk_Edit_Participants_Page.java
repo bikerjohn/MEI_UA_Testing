@@ -1,10 +1,10 @@
 package page_objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 
-public class Bulk_Edit_Participants_Page {
-	WebDriver driver;
+public class Bulk_Edit_Participants_Page extends AbstractBasePage {
 	By bulkEditPageWelcome = By.cssSelector("li[class='white bigger-150']");
 	By selectTemplateAssignment = By.cssSelector("select[id='search.templateAssignment']");
 	By selectAllCheckbox = By.cssSelector("input[id='editSelectAll']");
@@ -12,11 +12,9 @@ public class Bulk_Edit_Participants_Page {
 	By selectEditGroups = By.cssSelector("a[id='editGroupsModalTrigger']");
 	By selectEditDevices = By.cssSelector("a[id='editDevicesModalTrigger']");
 	By selectEditSchedule = By.cssSelector("a[id='editScheduleParticipantActivePeriodModalTrigger']");
-	private String default_assignments = "Default Assignments";
 	
 	public Bulk_Edit_Participants_Page(WebDriver driver){
-		this.driver = driver;
-		
+		super(driver);
 	}
 	
 	//return welcome text
@@ -29,14 +27,14 @@ public class Bulk_Edit_Participants_Page {
 	}
 	//select default template in template assignments column
 	public void select_Default_Assignment_Column(String defaultassignments){
-		this.default_assignments = defaultassignments;
-		driver.findElement(selectTemplateAssignment).click();
-		driver.findElement(selectTemplateAssignment).sendKeys(default_assignments);
-		driver.findElement(selectTemplateAssignment).click();
+		WebElement selector = findElement(selectTemplateAssignment);
+		selector.click();
+		selector.sendKeys(defaultassignments + "\r");
 	}
 	//select Edit Button
 	public void select_Edit_Button(){
-		driver.findElement(selectEditButton).click();
+//		driver.findElement(selectEditButton).click();
+		findElement(selectEditButton, 5000).click();
 	}
 	//select Groups li under Edit Button (creates Bulk Update Group modal)
 	public Update_Group_Modal select_Edit_Groups(){

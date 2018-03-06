@@ -2,10 +2,7 @@ package page_objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class PilrLogin {
-	 
-	   WebDriver driver;
-	 
+public class PilrLogin extends AbstractBasePage {	 
 	   By PilrName = By.id("username");
 	   By Pilrpassword = By.id("password");
 	   By PageTitle =By.cssSelector("h4.header.blue.lighter.bigger");
@@ -16,16 +13,16 @@ public class PilrLogin {
 	     
 	 
 	   public PilrLogin(WebDriver driver){
-	        this.driver = driver;	 
+	        super(driver);	 
 	    }
 	 
 	    //Set user name in textbox
 	    public void setUserName(String strUserName){
-	        driver.findElement(PilrName).clear();
-	    	driver.findElement(PilrName).sendKeys(strUserName);	 
+	        findElement(PilrName).clear();
+	    	findElement(PilrName).sendKeys(strUserName);	 
 	    }
-	 
-	    //Set password in password textbox
+
+		//Set password in password textbox
 	    public void setPassword(String strPassword){
 	        driver.findElement(Pilrpassword).clear(); 
 	    	driver.findElement(Pilrpassword).sendKeys(strPassword);	 

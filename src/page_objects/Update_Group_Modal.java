@@ -2,8 +2,7 @@ package page_objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Update_Group_Modal {
-	WebDriver driver;
+public class Update_Group_Modal extends AbstractBasePage {
 	By updateGroupWelcome = By.cssSelector("div[class='table-header']");
 	By participantStatus = By.cssSelector("select[name='groupIds']");
 	By templateAssignments = By.cssSelector("select[name='groupIds']");
@@ -14,12 +13,12 @@ public class Update_Group_Modal {
 	private String temp_assignments = "Default Assignments";
 	
 	public Update_Group_Modal(WebDriver driver){
-		this.driver = driver;
+		super(driver);
 	}
 	
 	//return welcome message
 	public String get_Group_Modal_Welcome(){
-		return driver.findElement(updateGroupWelcome).getText();
+		return findElement(updateGroupWelcome, 8000).getText();
 	}
 	//select and update the Participant Status and Template Assignment fields
 	public void select_Group_Status(String part_status, String temp_assignments){

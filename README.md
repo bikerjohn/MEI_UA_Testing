@@ -6,6 +6,9 @@ https://github.com/MeiResearchLtd/developer-admin/wiki/Selenium-Testing-Environm
 
 In addition, create a mei.properties for your environment using mei.properties.example. Make sure Create the user and org exists and have correct passwords.
 
+## Important Notes
+* Currently requires that ua_test org has already imported component https://github.com/pilrhealth/definition-files/raw/master/premium/PiLR%20EMA/auto-create-sample-project-bundle.json
+
 ## Test Scenarios
 * pilr_Create_Project_from_Scratch.xml
   * Create empty project

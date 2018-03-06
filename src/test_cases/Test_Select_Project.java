@@ -2,14 +2,15 @@ package test_cases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterTest;
+
+import page_objects.AbstractBasePage;
 import page_objects.PilrHomePage;
-import page_objects.PilrLogin;
 import page_objects.Pilr_Navbar;
 import page_objects.Pilr_CoordinatePage;
 import page_objects.Pilr_EMA_App_Home;
 
 public class Test_Select_Project extends AbstractTestCase{
-	PilrLogin objLogin;
+	AbstractBasePage objLogin;
     PilrHomePage objHomePage;
     Pilr_Navbar navbar;
     Pilr_CoordinatePage objCoordinatePage;
