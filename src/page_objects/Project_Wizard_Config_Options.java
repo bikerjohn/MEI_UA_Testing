@@ -13,7 +13,7 @@ public class Project_Wizard_Config_Options {
 	By selectDropDown2 = By.cssSelector("span[class='select2-chosen']");
 	By selectOrg = By.cssSelector("#s2id_importOrgDef .select2-chosen");
 	By fillDropDown2 = By.cssSelector("input[class='select2-input']");
-	By liEmaConfig = By.cssSelector("li[class='select2-results-dept-0 select2-result select2-result-selectable']");
+	By liEmaConfig = By.cssSelector("li.select2-results-dept-0.select2-result.select2-result-selectable");
 	
 	public Project_Wizard_Config_Options(WebDriver driver){
 		this.driver = driver;

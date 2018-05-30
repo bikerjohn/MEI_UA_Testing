@@ -643,6 +643,7 @@ public class AbstractTestCase {
 
 		System.out.println("Check features");
 		System.out.println(objProjectDetailsAdmin.getFeatures().toLowerCase());
+		// This fails intermittently. 
 		Assert.assertTrue(objProjectDetailsAdmin.getFeatures().toLowerCase().contains("v2_api,activity"));
 
 	}

@@ -1,8 +1,8 @@
 # MEI_UA_Testing
 Cleaned up repo for the Selenium WebDriver User Acceptance Tests
 
-Some info on setting up your environment:  
-https://github.com/MeiResearchLtd/developer-admin/wiki/Selenium-Testing-Environment
+Some info on setting up your environment is 
+[here](https://github.com/MeiResearchLtd/developer-admin/wiki/Selenium-Testing-Environment).
 
 In addition, create a mei.properties for your environment using mei.properties.example. Make sure Create the user and org exists and have correct passwords.
 
