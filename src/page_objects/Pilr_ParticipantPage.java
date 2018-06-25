@@ -3,8 +3,7 @@ package page_objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Pilr_ParticipantPage {
-	WebDriver driver;
+public class Pilr_ParticipantPage extends AbstractBasePage {
 	 
 	   By participantPageWelcome = By.cssSelector("h1");
 	   By scheduleParticipant = By.cssSelector("a[id='startDateParticipantActivePeriod']");
@@ -23,8 +22,7 @@ public class Pilr_ParticipantPage {
 	   
 
 	   public Pilr_ParticipantPage(WebDriver driver){
-			 
-	       this.driver = driver;
+		   super(driver);
 	   }
 	   
 	 	//Get the Coordinate Page Welcome
@@ -33,7 +31,7 @@ public class Pilr_ParticipantPage {
 	    }
 	    //schedule the participant active period
 	    public Schedule_Participant_Modal select_Participant_Schedule(){
-	    	driver.findElement(scheduleParticipant).click();
+	    	findElement(scheduleParticipant).click();
 	    	return new Schedule_Participant_Modal(driver);
 	    }
 	    //add a device for a participant

@@ -91,7 +91,7 @@ public final class TestVars {
 			participant_status = "Enrolled";
 			default_assignments = "Default Assignments";
 			proj_wizard_import_component_li = 1;
-			proj_wizard_import_bundle_li = 0;
+			proj_wizard_import_bundle_li = 1;
 			human_data_file = "/home/tyler/UA_Testing_Files/calrq-human-data.csv";
 			infusion_data_file = "/home/tyler/UA_Testing_Files/calrq-infusion-data.csv";
 			burn_data_file = "/home/tyler/UA_Testing_Files/calrq-burn-data.csv";

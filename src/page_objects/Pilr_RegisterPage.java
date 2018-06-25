@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class Pilr_RegisterPage {
 	WebDriver driver;
 	By registerPageWelcome = By.cssSelector("div#signup-widget-main");
-	By clickLoginReturn = By.cssSelector("i[class='icon-arrow-left.green']");
+	By clickLoginReturn = By.cssSelector("i.icon-arrow-left.green");
 	By emailaddress = By.xpath("(//input[@id='email'])[2]");
 	By userName = By.name("username");
 	By firstName = By.id("firstname");

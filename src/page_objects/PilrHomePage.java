@@ -4,9 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class PilrHomePage {
-	WebDriver driver;
-	 
+public class PilrHomePage extends AbstractBasePage {	 
 		private String project = "DualCohortStudy (OWNER)";
 		private String organization = "test_org";
 		By homePageWelcome = By.cssSelector("i.icon-double-angle-right");
@@ -17,14 +15,12 @@ public class PilrHomePage {
 		
 		
 	   public PilrHomePage(WebDriver driver){
-	 
-	       this.driver = driver;
-	       
+		   super(driver);
 	   }
 	 
 	   //Get the User name from Home Page
 	      public String getHomePageWelcome(){
-	        return    driver.findElement(homePageWelcome).getText();
+	        return findElement(homePageWelcome).getText();
 	    	//  return    driver.findElement(PilrCurrentUser).getText();
 	       }
 	      
@@ -32,8 +28,8 @@ public class PilrHomePage {
 	      public Pilr_CoordinatePage selectProject(String prjct) {
 	    	  this.project = prjct;
 		      System.out.println("[Page Object]Select Project");
-	    	  driver.findElement(PilrChooseProj).click();
-	    	  driver.findElement(By.partialLinkText(project)).click();
+	    	  findElement(PilrChooseProj).click();
+	    	  findElement(By.partialLinkText(project)).click();
 	    	  return new Pilr_CoordinatePage(driver);
 	      }
 	      //Select an organization to work on
@@ -41,9 +37,9 @@ public class PilrHomePage {
 	    	  this.organization = org;
 	    	  String href = "/organization/" + organization + "/show";
 	    	  String xpath = "//div[contains(@class, 'organization-title')]//a[@href='" + href + "']";
-	    	  WebElement linkToOrg = driver.findElement(By.xpath(xpath));
+	    	  WebElement linkToOrg = findElement(By.xpath(xpath));
 	    	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", linkToOrg);
-//	    	  linkToOrg = driver.findElement(By.xpath(xpath));
+//	    	  linkToOrg = findElement(By.xpath(xpath));
 	    	  linkToOrg.click();
 	    	  return new Pilr_Org_Page(driver);
 	      }
@@ -51,7 +47,7 @@ public class PilrHomePage {
 	      public void expandOrg(String Org){
 	    	  this.organization = Org;
 	    	  this.PilrOrgExp = By.cssSelector("i[class='icon-chevron-right']");
-	    	  driver.findElement(PilrTable).click();
+	    	  findElement(PilrTable).click();
 	    	  driver.findElements(PilrOrgExp).get(1).click(); 
 	      }
 	      
