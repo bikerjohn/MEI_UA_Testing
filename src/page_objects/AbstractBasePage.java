@@ -10,6 +10,7 @@ import pilrhealth.com.ua.util.Retriable;
 
 public class AbstractBasePage {
 		
+	private static final int DEFAULT_TIMEOUT = 15000;
 	protected WebDriver driver;
 
 	public AbstractBasePage(WebDriver driver) {
@@ -25,6 +26,19 @@ public class AbstractBasePage {
 		}.run();
 	}
 	protected WebElement findElement(By by) {
-		return findElement(by, 15000);
+		return findElement(by, DEFAULT_TIMEOUT);
 	}
+	
+	protected List<WebElement> findElements(By by, long timeout) {
+		return new Retriable<List<WebElement>>(timeout) {
+			@Override
+			protected List<WebElement> tryOnce() {
+				return driver.findElements(by);
+			}
+		}.run();
+	}
+	protected List<WebElement> findElements(By by) {
+		return findElements(by, DEFAULT_TIMEOUT);
+	}
+
 }

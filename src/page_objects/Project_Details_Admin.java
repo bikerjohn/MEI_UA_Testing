@@ -4,8 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class Project_Details_Admin {
-	WebDriver driver;
+public class Project_Details_Admin extends AbstractBasePage {
 	 
 	   private String part_code = "992";
 	   By projectDetailsWelcome = By.cssSelector("a[id='edit']");
@@ -28,42 +27,41 @@ public class Project_Details_Admin {
 	   //By editFeats = By.cssSelector()
 	   
 	 public Project_Details_Admin(WebDriver driver){
-	 
-	       this.driver = driver;
+	       super(driver);
 	   }
 	   
 	 	//Get the Coordinate Page Welcome
 	    public String getProjectDetailsWelcome(){
 	    	System.out.println("In welcome features");
-	        return    driver.findElement(projectDetailsWelcome).getText();
+	        return    findElement(projectDetailsWelcome).getText();
 	    }
 	      
 	    public String getFeatures(){
 	    	System.out.println("In get features");
-	        //return driver.findElement(featureLocation).getText();
-	    	return driver.findElement(By.xpath("(//div[@class='col-sm-8 wrap-text'])[5]")).getText();
+	        //return findElement(featureLocation).getText();
+	    	return findElement(By.xpath("(//div[@class='col-sm-8 wrap-text'])[5]")).getText();
 	    }
 	    
 	    public void editFeatures(){
 	    	System.out.println("In edit features");
-	    	driver.findElement(editBtn).click();
+	    	findElement(editBtn).click();
 	    }
 	    
 	    public void setFeatures(){
 	    	System.out.println("In set features");
-	        driver.findElement(featureLocation).clear();
-	    	driver.findElement(featureLocation).sendKeys(featName);	 
+	        findElement(featureLocation).clear();
+	    	findElement(featureLocation).sendKeys(featName);	 
 	    }
 	    
 	    public void saveFeatures(){
 	    	System.out.println("In save features");
-	    	WebElement element = driver.findElement(configChecker);
+	    	WebElement element = findElement(configChecker);
 	    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-	    	driver.findElement(projSave).click();
+	    	findElement(projSave).click();
 	    }
 	   public void clearFeatures(){
 		   System.out.println("In set features");
-	       driver.findElement(featureLocation).clear();
+	       findElement(featureLocation).clear();
 	    	
 		   
 	   }

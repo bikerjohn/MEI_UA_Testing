@@ -12,18 +12,18 @@ public class Bulk_Edit_Participants_Page extends AbstractBasePage {
 	By selectEditGroups = By.cssSelector("a[id='editGroupsModalTrigger']");
 	By selectEditDevices = By.cssSelector("a[id='editDevicesModalTrigger']");
 	By selectEditSchedule = By.cssSelector("a[id='editScheduleParticipantActivePeriodModalTrigger']");
-	
+
 	public Bulk_Edit_Participants_Page(WebDriver driver){
 		super(driver);
 	}
-	
+
 	//return welcome text
 	public String get_bulk_Edit_Welcome(){
-		return driver.findElement(bulkEditPageWelcome).getText();
+		return findElement(bulkEditPageWelcome).getText();
 	}
 	//select edit all checkbox
 	public void select_Edit_All_Checkbox(){
-		driver.findElement(selectAllCheckbox).click();
+		findElement(selectAllCheckbox).click();
 	}
 	//select default template in template assignments column
 	public void select_Default_Assignment_Column(String defaultassignments){
@@ -33,23 +33,23 @@ public class Bulk_Edit_Participants_Page extends AbstractBasePage {
 	}
 	//select Edit Button
 	public void select_Edit_Button(){
-//		driver.findElement(selectEditButton).click();
+//		findElement(selectEditButton).click();
 		findElement(selectEditButton, 5000).click();
 	}
 	//select Groups li under Edit Button (creates Bulk Update Group modal)
 	public Update_Group_Modal select_Edit_Groups(){
-		driver.findElement(selectEditGroups).click();
+		findElement(selectEditGroups).click();
 		return new Update_Group_Modal(driver);
 	}
 	//select Groups li under Edit Button (creates Bulk Update Group modal)
 		public Update_Device_Modal select_Edit_Devices(){
-			driver.findElement(selectEditDevices).click();
+			findElement(selectEditDevices).click();
 			return new Update_Device_Modal(driver);
 		}
 	//select Schedule li under Edit Button (creates Bulk Update Schedule modal)
 	public Update_Schedule_Modal select_Edit_Schedule(){
-		driver.findElement(selectEditSchedule).click();
+		findElement(selectEditSchedule).click();
 		return new Update_Schedule_Modal(driver);
 	}
-	
+
 }
